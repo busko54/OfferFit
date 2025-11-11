@@ -661,25 +661,40 @@ ${jobPosting}`
       const salaryData = getSalaryData(jobTitle);
       
       // Get AI analysis
-      const button = event.target;
-      button.textContent = '⏳ Analyzing...';
-      button.disabled = true;
-
-      try {
-        const aiAnalysis = await getAIAnalysis(profile, job, analysis);
-        analysis.aiInsight = aiAnalysis;
-      } catch (error) {
-        console.error('AI analysis failed:', error);
-        analysis.aiInsight = null;
+      const analyzeBtn = document.querySelector('[onclick="analyzeOffer()"]');
+      if (analyzeBtn) {
+        analyzeBtn.textContent = '⏳ Analyzing...';
+        analyzeBtn.disabled = true;
       }
 
-      button.disabled = false;
-      
-      decisions.push({ ...analysis, job, salaryData, timestamp: new Date().toLocaleString() });
-      localStorage.setItem('careermoveDecisions', JSON.stringify(decisions));
+      getAIAnalysis(profile, job, analysis).then(aiInsight => {
+        analysis.aiInsight = aiInsight;
+        
+        decisions.push({ ...analysis, job, salaryData, timestamp: new Date().toLocaleString() });
+        localStorage.setItem('careermoveDecisions', JSON.stringify(decisions));
 
-      displayResult(analysis, salaryData, job, profile);
-      showScreen('resultScreen');
+        displayResult(analysis, salaryData, job, profile);
+        showScreen('resultScreen');
+        
+        if (analyzeBtn) {
+          analyzeBtn.textContent = 'Analyze This Offer';
+          analyzeBtn.disabled = false;
+        }
+      }).catch(error => {
+        console.error('AI analysis failed:', error);
+        analysis.aiInsight = null;
+        
+        decisions.push({ ...analysis, job, salaryData, timestamp: new Date().toLocaleString() });
+        localStorage.setItem('careermoveDecisions', JSON.stringify(decisions));
+
+        displayResult(analysis, salaryData, job, profile);
+        showScreen('resultScreen');
+        
+        if (analyzeBtn) {
+          analyzeBtn.textContent = 'Analyze This Offer';
+          analyzeBtn.disabled = false;
+        }
+      });
     }
 
     function displayResult(analysis, salaryData, job, profile) {
