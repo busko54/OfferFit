@@ -360,6 +360,54 @@
     function goToProfileScreen() { showScreen('profileScreen'); }
     function goToJobScreen() { showScreen('jobScreen'); }
 
+    async function getAIAnalysis(profile, job, analysis) {
+      const prompt = `You are a career coach. Analyze this job decision and provide 1-2 sentences of actionable insight.
+
+User Profile:
+- Priorities: Salary (${profile.priority_salary}/5), Balance (${profile.priority_balance}/5), Growth (${profile.priority_growth}/5), Stability (${profile.priority_stability}/5), Remote (${profile.priority_remote}/5)
+- Current: ${profile.currentSalary}/year, ${profile.currentHours}h/week
+- Years exp: ${document.getElementById('yearsExp').value}
+
+Job Offer:
+- Title: ${job.jobTitle} @ ${job.company}
+- Salary: ${job.baseSalary}/year (${((job.baseSalary - profile.currentSalary) / profile.currentSalary * 100).toFixed(0)}% change)
+- Hours: ${job.hoursPerWeek}h/week
+- Stage: ${job.fundingStage}
+- Remote: ${job.isRemote ? 'Yes' : 'No'}
+
+Our recommendation: ${analysis.recommendation}
+
+Give actionable advice. Be honest. If there's a contradiction in their priorities, point it out.`;
+
+      const response = await fetch(
+        "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-goog-api-key": "AIzaSyDJXDxYHkMmah8gzTEpW4dW9h97HPpm0JI"
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [
+                  {
+                    text: prompt
+                  }
+                ]
+              }
+            ]
+          })
+        }
+      );
+
+      const data = await response.json();
+      if (data.candidates && data.candidates[0]) {
+        return data.candidates[0].content.parts[0].text;
+      }
+      return null;
+    }
+
     async function extractJobData() {
       const jobPosting = document.getElementById('jobPostingPaste').value.trim();
       
@@ -612,6 +660,21 @@ ${jobPosting}`
       const analysis = calculateDecisionScore(profile, job);
       const salaryData = getSalaryData(jobTitle);
       
+      // Get AI analysis
+      const button = event.target;
+      button.textContent = '⏳ Analyzing...';
+      button.disabled = true;
+
+      try {
+        const aiAnalysis = await getAIAnalysis(profile, job, analysis);
+        analysis.aiInsight = aiAnalysis;
+      } catch (error) {
+        console.error('AI analysis failed:', error);
+        analysis.aiInsight = null;
+      }
+
+      button.disabled = false;
+      
       decisions.push({ ...analysis, job, salaryData, timestamp: new Date().toLocaleString() });
       localStorage.setItem('careermoveDecisions', JSON.stringify(decisions));
 
@@ -630,6 +693,13 @@ ${jobPosting}`
         <div class="recommendation ${recClass}">${analysis.recommendation}</div>
         <div class="score">Score: ${analysis.score}/10</div>
         <div class="explanation">${analysis.explanation}</div>
+
+        ${analysis.aiInsight ? `
+        <div class="salary-data" style="border-left-color: #64ff9f; background: linear-gradient(135deg, rgba(100, 255, 159, 0.1) 0%, rgba(100, 255, 159, 0.05) 100%);">
+          <h3 style="color: #64ff9f;">💡 Career Coach Insight</h3>
+          <p style="color: #c0c0c0; margin: 0;">${analysis.aiInsight}</p>
+        </div>
+        ` : ''}
 
         <div class="comparison">
           <h3 style="color: #00d4ff; margin-bottom: 15px;">Compare to Current</h3>
