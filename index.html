@@ -603,16 +603,16 @@ ${jobPosting}`
       let recommendation = 'UNDECIDED';
       let explanation = '';
       
-      if (score >= 7) {
+      if (score >= 6) {
         recommendation = 'TAKE ✅';
         explanation = 'Strong yes. This aligns well with your priorities. The pros outweigh the cons.';
-      } else if (score >= 4) {
+      } else if (score >= 3) {
         recommendation = 'TAKE ✅';
         explanation = 'Yes. Good overall fit. This is a solid move.';
-      } else if (score >= 0) {
+      } else if (score >= -1) {
         recommendation = 'NEGOTIATE 🤝';
         explanation = 'Close call. Consider negotiating on the weak points to make it work.';
-      } else if (score >= -3) {
+      } else if (score >= -4) {
         recommendation = 'PROBABLY PASS ⚠️';
         explanation = 'Lean towards passing. Better opportunities likely exist. Only take if desperate.';
       } else {
