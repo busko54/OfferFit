@@ -7,7 +7,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #0f0f1e; color: #e0e0e0; line-height: 1.6; }
-    
+   
     .landing { min-height: 100vh; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; align-items: center; justify-content: center; padding: 40px 20px; text-align: center; position: relative; overflow: hidden; }
     .landing::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(233, 69, 96, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(76, 175, 255, 0.1) 0%, transparent 50%); pointer-events: none; }
     .landing-content { max-width: 900px; color: #fff; position: relative; z-index: 1; }
@@ -16,10 +16,10 @@
     .landing .subtitle { font-size: 18px; margin-bottom: 40px; color: #b0b0b0; line-height: 1.8; }
     .cta-button { display: inline-block; padding: 16px 48px; background: linear-gradient(135deg, #00d4ff 0%, #4cb5ff 100%); color: #0f0f1e; font-size: 18px; font-weight: 700; border: none; border-radius: 12px; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 30px rgba(76, 181, 255, 0.3); }
     .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 50px rgba(76, 181, 255, 0.5); }
-    
+   
     .social-proof { margin-top: 50px; padding: 25px; background: rgba(76, 181, 255, 0.08); border-radius: 12px; border: 1px solid rgba(76, 181, 255, 0.2); }
     .social-proof p { margin: 10px 0; font-size: 15px; color: #c0c0c0; }
-    
+   
     .how-it-works { margin-top: 100px; padding-top: 80px; border-top: 1px solid rgba(76, 181, 255, 0.2); }
     .how-it-works h2 { font-size: 42px; margin-bottom: 50px; font-weight: 800; background: linear-gradient(135deg, #00d4ff 0%, #64ff9f 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
@@ -28,15 +28,15 @@
     .step-number { display: inline-flex; width: 50px; height: 50px; background: linear-gradient(135deg, #00d4ff 0%, #4cb5ff 100%); color: #0f0f1e; font-weight: 800; border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 22px; }
     .step h3 { font-size: 22px; margin-bottom: 12px; font-weight: 700; color: #00d4ff; }
     .step p { color: #a0a0a0; }
-    
+   
     .pain-points { margin-top: 100px; padding: 50px 40px; background: linear-gradient(135deg, rgba(233, 69, 96, 0.08) 0%, rgba(255, 107, 107, 0.08) 100%); border-radius: 16px; text-align: left; border: 1px solid rgba(233, 69, 96, 0.2); }
     .pain-points h2 { font-size: 36px; margin-bottom: 30px; color: #ff6b6b; font-weight: 800; }
     .pain-points p { margin-bottom: 20px; color: #c0c0c0; }
-    
+   
     .final-cta { margin-top: 100px; padding: 60px 40px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(100, 255, 159, 0.1) 100%); border-radius: 16px; text-align: center; border: 2px solid rgba(76, 181, 255, 0.3); }
     .final-cta h2 { font-size: 40px; margin-bottom: 15px; background: linear-gradient(135deg, #00d4ff 0%, #64ff9f 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800; }
     .final-cta p { color: #b0b0b0; margin-bottom: 30px; }
-    
+   
     .app-container { display: none; min-height: 100vh; background: #0f0f1e; padding: 20px; }
     .app-container.show { display: block; }
     .app-content { max-width: 800px; margin: 0 auto; background: #1a1a2e; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); padding: 40px; border: 1px solid rgba(76, 181, 255, 0.2); }
@@ -44,7 +44,7 @@
     .back-button { background: none; border: none; font-size: 28px; cursor: pointer; margin-right: 15px; color: #00d4ff; padding: 0; transition: 0.3s; }
     .back-button:hover { transform: scale(1.1); }
     .app-header h1 { font-size: 28px; margin: 0; background: linear-gradient(135deg, #00d4ff 0%, #64ff9f 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    
+   
     h1 { font-size: 32px; color: #e0e0e0; margin-bottom: 8px; }
     .subtitle { color: #a0a0a0; margin-bottom: 30px; font-size: 14px; }
     .section { margin-bottom: 30px; }
@@ -54,59 +54,61 @@
     input, select, textarea { width: 100%; padding: 12px; border: 1px solid rgba(76, 181, 255, 0.3); background: rgba(76, 181, 255, 0.05); border-radius: 8px; font-size: 14px; font-family: inherit; color: #e0e0e0; transition: all 0.3s; }
     input::placeholder, textarea::placeholder { color: #606070; }
     input:focus, select:focus, textarea:focus { outline: none; border-color: #00d4ff; background: rgba(76, 181, 255, 0.1); box-shadow: 0 0 0 3px rgba(76, 181, 255, 0.15); }
-    
+   
     .slider-container { display: flex; align-items: center; gap: 15px; }
     input[type="range"] { flex: 1; cursor: pointer; accent-color: #00d4ff; }
     .slider-value { min-width: 40px; text-align: center; font-weight: 700; color: #64ff9f; background: rgba(100, 255, 159, 0.1); padding: 4px 8px; border-radius: 6px; }
-    
-    .button-row { display: flex; gap: 10px; margin-top: 30px; }
-    button { flex: 1; padding: 13px 24px; font-size: 16px; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s; font-family: inherit; }
-    .btn-primary { background: linear-gradient(135deg, #00d4ff 0%, #4cb5ff 100%); color: #0f0f1e; }
+   
+    .button-row { display: flex; gap: 10px; margin-top: 30px; flex-wrap: wrap; }
+    button { padding: 13px 24px; font-size: 16px; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s; font-family: inherit; }
+    .btn-primary { background: linear-gradient(135deg, #00d4ff 0%, #4cb5ff 100%); color: #0f0f1e; flex: 1; }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(76, 181, 255, 0.3); }
     .btn-secondary { background: rgba(76, 181, 255, 0.1); color: #00d4ff; border: 1px solid rgba(76, 181, 255, 0.3); }
     .btn-secondary:hover { background: rgba(76, 181, 255, 0.2); }
-    
+   
     .recommendation { font-size: 48px; font-weight: 800; margin: 20px 0; padding: 25px; border-radius: 12px; text-align: center; }
     .recommendation.take { background: linear-gradient(135deg, rgba(100, 255, 159, 0.15) 0%, rgba(100, 255, 159, 0.05) 100%); color: #64ff9f; border: 1px solid rgba(100, 255, 159, 0.3); }
     .recommendation.pass { background: linear-gradient(135deg, rgba(255, 107, 107, 0.15) 0%, rgba(255, 107, 107, 0.05) 100%); color: #ff6b6b; border: 1px solid rgba(255, 107, 107, 0.3); }
     .recommendation.negotiate { background: linear-gradient(135deg, rgba(255, 179, 71, 0.15) 0%, rgba(255, 179, 71, 0.05) 100%); color: #ffb347; border: 1px solid rgba(255, 179, 71, 0.3); }
-    
+   
     .score { font-size: 24px; font-weight: 700; color: #00d4ff; margin: 15px 0; text-align: center; }
     .explanation { font-size: 16px; color: #a0a0a0; margin: 15px 0; font-style: italic; text-align: center; }
-    
+   
     .breakdown-item { background: rgba(76, 181, 255, 0.05); padding: 15px; margin-bottom: 12px; border-left: 4px solid #00d4ff; border-radius: 6px; }
     .breakdown-key { font-weight: 700; color: #64ff9f; text-transform: capitalize; }
     .breakdown-value { color: #b0b0b0; margin-top: 5px; font-size: 14px; }
-    
+   
     .salary-data { background: linear-gradient(135deg, rgba(76, 181, 255, 0.1) 0%, rgba(76, 181, 255, 0.05) 100%); padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #4cb5ff; border: 1px solid rgba(76, 181, 255, 0.3); }
     .salary-data h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; color: #00d4ff; }
     .salary-data p { font-size: 14px; color: #b0b0b0; margin: 6px 0; }
-    
+   
     .history-item { background: linear-gradient(135deg, rgba(76, 181, 255, 0.05) 0%, rgba(100, 255, 159, 0.05) 100%); padding: 18px; margin-bottom: 12px; border-left: 4px solid #4cb5ff; border-radius: 6px; border: 1px solid rgba(76, 181, 255, 0.2); }
     .history-rec { font-weight: 700; font-size: 16px; color: #00d4ff; }
     .history-date { font-size: 12px; color: #707080; margin-top: 8px; }
-    
+   
     .pros-cons { background: rgba(76, 181, 255, 0.05); padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid rgba(76, 181, 255, 0.2); }
-    .pros-cons h3 { color: #64ff9f; margin-bottom: 10px; font-size: 16px; }
+    .pros-cons h3 { margin-bottom: 10px; font-size: 16px; }
     .pro-item { color: #64ff9f; margin: 8px 0; padding-left: 20px; }
-    .pro-item::before { content: '✓ '; font-weight: bold; }
+    .pro-item::before { content: 'Checkmark: '; font-weight: bold; }
     .con-item { color: #ff6b6b; margin: 8px 0; padding-left: 20px; }
-    .con-item::before { content: '✗ '; font-weight: bold; }
-    
+    .con-item::before { content: 'Cross: '; font-weight: bold; }
+   
     .comparison { background: rgba(76, 181, 255, 0.05); padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid rgba(76, 181, 255, 0.2); }
     .comparison-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 12px; align-items: center; }
     .comparison-label { color: #a0a0a0; font-weight: 600; }
     .comparison-current { color: #c0c0c0; }
     .comparison-new { color: #00d4ff; font-weight: 700; }
-    
+   
     .hidden { display: none; }
-    
+   
     @media (max-width: 768px) {
       .landing h1 { font-size: 48px; }
       .landing .tagline { font-size: 22px; }
       .steps { grid-template-columns: 1fr; }
       .app-content { padding: 25px; }
       .comparison-row { grid-template-columns: 1fr; }
+      .button-row { flex-direction: column; }
+      button { width: 100%; }
     }
   </style>
 </head>
@@ -116,42 +118,37 @@
     <div class="landing-content">
       <h1>CareerMove</h1>
       <p class="tagline">Stop making job decisions emotionally.</p>
-      <p class="subtitle">Get a personalized recommendation based on YOUR priorities + real market data. <strong>Free. No credit card.</strong></p>
-      <button class="cta-button" onclick="startApp()">Analyze My Next Offer →</button>
-
+      <p class="subtitle">Get a personalized recommendation based on YOUR priorities + real market data + your resume. <strong>Free. No credit card.</strong></p>
+      <button class="cta-button" onclick="startApp()">Analyze My Next Offer</button>
       <div class="social-proof">
-        <p><strong>⭐ 4.8/5</strong> from early users</p>
+        <p><strong>4.8/5</strong> from early users</p>
         <p>"This actually helped me think clearly about what matters" - Test User</p>
       </div>
-
       <div class="how-it-works">
         <h2>How It Works</h2>
         <div class="steps">
           <div class="step">
             <div class="step-number">1</div>
-            <h3>Your Profile</h3>
-            <p>Tell us your current situation and what matters most to you.</p>
+            <h3>Upload Resume (Optional)</h3>
+            <p>Auto-fill your experience & skills.</p>
           </div>
           <div class="step">
             <div class="step-number">2</div>
-            <h3>Enter Job Offer</h3>
-            <p>Paste the job details or enter them manually.</p>
+            <h3>Your Profile</h3>
+            <p>Tell us your current situation and priorities.</p>
           </div>
           <div class="step">
             <div class="step-number">3</div>
+            <h3>Enter Job Offer</h3>
+            <p>Paste posting or fill manually.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
             <h3>Get Recommendation</h3>
-            <p>See if you should TAKE, PASS, or NEGOTIATE. With reasoning.</p>
+            <p>TAKE, PASS, or NEGOTIATE — with reasoning.</p>
           </div>
         </div>
       </div>
-
-      <div class="pain-points">
-        <h2>Why People Make Bad Job Decisions</h2>
-        <p><strong>❌ No Framework:</strong> You gut-feel it instead of analyzing systematically.</p>
-        <p><strong>❌ No Comparison:</strong> You don't compare to current situation or market rates.</p>
-        <p><strong>❌ No Memory:</strong> You forget your own priorities and repeat mistakes.</p>
-      </div>
-
       <div class="final-cta">
         <h2>Make better career decisions</h2>
         <p>Takes 3 minutes. You're thinking about this anyway.</p>
@@ -163,78 +160,96 @@
   <!-- APP -->
   <div id="appContainer" class="app-container">
     <div class="app-content">
+      <!-- RESUME SCREEN -->
+      <div id="resumeScreen" class="hidden">
+        <div class="app-header">
+          <button class="back-button" onclick="goToProfileScreen()">Back</button>
+          <h1>Upload Your Resume</h1>
+        </div>
+        <p class="subtitle">We’ll extract your experience, skills, and level to make recommendations 10x smarter.</p>
+        <div class="section">
+          <div id="dropZone" style="border: 3px dashed #00d4ff; border-radius: 16px; padding: 40px; text-align: center; background: rgba(76, 181, 255, 0.05); cursor: pointer; transition: all 0.3s;">
+            <p style="font-size: 18px; color: #00d4ff; margin-bottom: 10px;">Drop your resume here</p>
+            <p style="color: #808080; font-size: 14px;">PDF, DOCX, or TXT • Max 5MB</p>
+            <input type="file" id="resumeFile" accept=".pdf,.docx,.txt" style="display: none;">
+            <button class="btn-secondary" onclick="document.getElementById('resumeFile').click()" style="margin-top: 15px;">Choose File</button>
+          </div>
+          <div id="resumeStatus" style="margin-top: 20px; padding: 15px; border-radius: 8px; background: rgba(100, 255, 159, 0.1); border: 1px solid rgba(100, 255, 159, 0.3); display: none;">
+            <p style="color: #64ff9f; font-weight: 700;">Resume uploaded!</p>
+            <div id="resumePreview"></div>
+          </div>
+          <div id="resumeError" style="margin-top: 20px; padding: 15px; border-radius: 8px; background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.3); display: none;">
+            <p style="color: #ff6b6b;">Failed to read resume. Try again or enter manually.</p>
+          </div>
+        </div>
+        <div class="button-row">
+          <button class="btn-primary" onclick="parseResume()" id="parseBtn" disabled>Parse & Update Profile</button>
+        </div>
+      </div>
+
       <!-- PROFILE SCREEN -->
       <div id="profileScreen">
         <h1>Your Profile</h1>
         <p class="subtitle">Tell us about your current situation</p>
-        
+       
         <div class="section">
           <div class="form-group">
             <label>Current Job Title</label>
             <input type="text" id="currentJobTitle" placeholder="e.g., Software Engineer">
           </div>
-
           <div class="form-group">
             <label>Current Salary ($)</label>
             <input type="number" id="currentSalary" value="80000">
           </div>
-
           <div class="form-group">
             <label>Current Hours Per Week</label>
             <input type="number" id="currentHours" value="40">
           </div>
-
           <div class="form-group">
             <label>Years of Experience</label>
             <input type="number" id="yearsExp" value="5" min="0">
           </div>
         </div>
-
         <div class="section">
           <h2>What Matters Most? (1-5 scale)</h2>
-          
           <div class="form-group">
-            <label>💰 Salary</label>
+            <label>Salary</label>
             <div class="slider-container">
               <input type="range" id="prioritySalary" min="1" max="5" value="3">
               <span class="slider-value" id="salaryValue">3</span>
             </div>
           </div>
-
           <div class="form-group">
-            <label>⚖️ Work-Life Balance</label>
+            <label>Work-Life Balance</label>
             <div class="slider-container">
               <input type="range" id="priorityBalance" min="1" max="5" value="4">
               <span class="slider-value" id="balanceValue">4</span>
             </div>
           </div>
-
           <div class="form-group">
-            <label>📈 Career Growth</label>
+            <label>Career Growth</label>
             <div class="slider-container">
               <input type="range" id="priorityGrowth" min="1" max="5" value="3">
               <span class="slider-value" id="growthValue">3</span>
             </div>
           </div>
-
           <div class="form-group">
-            <label>🛡️ Stability</label>
+            <label>Stability</label>
             <div class="slider-container">
               <input type="range" id="priorityStability" min="1" max="5" value="4">
               <span class="slider-value" id="stabilityValue">4</span>
             </div>
           </div>
-
           <div class="form-group">
-            <label>🏠 Remote Work</label>
+            <label>Remote Work</label>
             <div class="slider-container">
               <input type="range" id="priorityRemote" min="1" max="5" value="3">
               <span class="slider-value" id="remoteValue">3</span>
             </div>
           </div>
         </div>
-
         <div class="button-row">
+          <button class="btn-secondary" onclick="showScreen('resumeScreen')" style="margin-right: 10px;">Upload Resume</button>
           <button class="btn-primary" onclick="goToJobScreen()">Next: Enter Job Offer</button>
           <button class="btn-secondary" onclick="showHistory()">View History</button>
         </div>
@@ -243,41 +258,36 @@
       <!-- JOB SCREEN -->
       <div id="jobScreen" class="hidden">
         <div class="app-header">
-          <button class="back-button" onclick="goToProfileScreen()">←</button>
+          <button class="back-button" onclick="goToProfileScreen()">Back</button>
           <h1>Job Offer Details</h1>
         </div>
-        
+       
         <div class="section" style="background: rgba(100, 255, 159, 0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(100, 255, 159, 0.2); margin-bottom: 20px;">
-          <p style="color: #64ff9f; font-size: 13px; margin-bottom: 10px;"><strong>💡 Quick Fill:</strong> Paste a job posting below and AI will auto-fill the fields</p>
+          <p style="color: #64ff9f; font-size: 13px; margin-bottom: 10px;"><strong>Quick Fill:</strong> Paste a job posting below and AI will auto-fill</p>
           <div class="form-group">
             <textarea id="jobPostingPaste" placeholder="Paste the full job posting here (LinkedIn, Indeed, email offer, etc.)" style="height: 120px; resize: vertical;"></textarea>
           </div>
-          <button class="btn-secondary" onclick="extractJobData()" style="width: 100%;">🤖 Auto-Fill from Posting</button>
+          <button class="btn-secondary" onclick="extractJobData()" style="width: 100%;">Auto-Fill from Posting</button>
         </div>
-
         <div style="text-align: center; color: #707080; margin: 20px 0; font-size: 13px;">— OR ENTER MANUALLY —</div>
-        
+       
         <div class="section">
           <div class="form-group">
             <label>Job Title</label>
             <input type="text" id="jobTitle" placeholder="e.g., Senior Engineer">
           </div>
-
           <div class="form-group">
             <label>Company Name</label>
             <input type="text" id="company" placeholder="e.g., Google">
           </div>
-
           <div class="form-group">
             <label>Base Salary ($)</label>
             <input type="number" id="baseSalary" placeholder="e.g., 95000">
           </div>
-
           <div class="form-group">
             <label>Hours Per Week</label>
             <input type="number" id="hoursPerWeek" value="45">
           </div>
-
           <div class="form-group">
             <label>Company Stage</label>
             <select id="fundingStage">
@@ -287,22 +297,18 @@
               <option value="public">Public Company (Very Safe)</option>
             </select>
           </div>
-
           <div class="form-group">
             <label>Team Size</label>
             <input type="number" id="teamSize" value="5" min="1">
           </div>
-
           <div class="form-group">
             <label><input type="checkbox" id="isRemote"> Fully Remote?</label>
           </div>
-
           <div class="form-group">
             <label>Any concerns? (Optional)</label>
             <textarea id="concerns" placeholder="e.g., Long commute, unclear growth path, layoff risk..."></textarea>
           </div>
         </div>
-
         <div class="button-row">
           <button class="btn-primary" onclick="analyzeOffer()">Analyze This Offer</button>
         </div>
@@ -311,12 +317,10 @@
       <!-- RESULT SCREEN -->
       <div id="resultScreen" class="hidden">
         <div class="app-header">
-          <button class="back-button" onclick="goToJobScreen()">←</button>
+          <button class="back-button" onclick="goToJobScreen()">Back</button>
           <h1>Analysis</h1>
         </div>
-        
         <div id="resultContent"></div>
-
         <div class="button-row">
           <button class="btn-primary" onclick="goToJobScreen()">Analyze Another</button>
           <button class="btn-secondary" onclick="goToProfileScreen()">Update Profile</button>
@@ -326,7 +330,7 @@
       <!-- HISTORY SCREEN -->
       <div id="historyScreen" class="hidden">
         <div class="app-header">
-          <button class="back-button" onclick="goToProfileScreen()">←</button>
+          <button class="back-button" onclick="goToProfileScreen()">Back</button>
           <h1>Your Decisions</h1>
         </div>
         <div id="historyContent"></div>
@@ -339,7 +343,10 @@
 
   <script>
     let decisions = JSON.parse(localStorage.getItem('careermoveDecisions')) || [];
+    let resumeText = '';
+    let resumeData = null;
 
+    // Slider values
     ['prioritySalary', 'priorityBalance', 'priorityGrowth', 'priorityStability', 'priorityRemote'].forEach(id => {
       document.getElementById(id).addEventListener('input', (e) => {
         const name = id.replace('priority', '').toLowerCase();
@@ -350,79 +357,64 @@
     function startApp() {
       document.getElementById('landingPage').style.display = 'none';
       document.getElementById('appContainer').classList.add('show');
+      goToProfileScreen();
     }
 
     function showScreen(screenId) {
       document.querySelectorAll('[id$="Screen"]').forEach(el => el.classList.add('hidden'));
       document.getElementById(screenId).classList.remove('hidden');
     }
-
     function goToProfileScreen() { showScreen('profileScreen'); }
     function goToJobScreen() { showScreen('jobScreen'); }
 
-    async function getAIAnalysis(profile, job, analysis) {
-      const prompt = `You are a career coach. Analyze this job decision and provide 1-2 sentences of actionable insight.
+    // Resume Upload & Parsing
+    document.getElementById('dropZone').addEventListener('click', () => {
+      document.getElementById('resumeFile').click();
+    });
+    document.getElementById('dropZone').addEventListener('dragover', (e) => {
+      e.preventDefault();
+      e.currentTarget.style.borderColor = '#64ff9f';
+    });
+    document.getElementById('dropZone').addEventListener('dragleave', (e) => {
+      e.currentTarget.style.borderColor = '#00d4ff';
+    });
+    document.getElementById('dropZone').addEventListener('drop', (e) => {
+      e.preventDefault();
+      e.currentTarget.style.borderColor = '#00d4ff';
+      const files = e.dataTransfer.files;
+      if (files.length) handleResumeFile(files[0]);
+    });
+    document.getElementById('resumeFile').addEventListener('change', (e) => {
+      if (e.target.files.length) handleResumeFile(e.target.files[0]);
+    });
 
-User Profile:
-- Priorities: Salary (${profile.priority_salary}/5), Balance (${profile.priority_balance}/5), Growth (${profile.priority_growth}/5), Stability (${profile.priority_stability}/5), Remote (${profile.priority_remote}/5)
-- Current: ${profile.currentSalary}/year, ${profile.currentHours}h/week
-- Years exp: ${document.getElementById('yearsExp').value}
-
-Job Offer:
-- Title: ${job.jobTitle} @ ${job.company}
-- Salary: ${job.baseSalary}/year (${((job.baseSalary - profile.currentSalary) / profile.currentSalary * 100).toFixed(0)}% change)
-- Hours: ${job.hoursPerWeek}h/week
-- Stage: ${job.fundingStage}
-- Remote: ${job.isRemote ? 'Yes' : 'No'}
-
-Our recommendation: ${analysis.recommendation}
-
-Give actionable advice. Be honest. If there's a contradiction in their priorities, point it out.`;
-
-      const response = await fetch(
-        "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-goog-api-key": "AIzaSyDJXDxYHkMmah8gzTEpW4dW9h97HPpm0JI"
-          },
-          body: JSON.stringify({
-            contents: [
-              {
-                parts: [
-                  {
-                    text: prompt
-                  }
-                ]
-              }
-            ]
-          })
-        }
-      );
-
-      const data = await response.json();
-      if (data.candidates && data.candidates[0]) {
-        return data.candidates[0].content.parts[0].text;
-      }
-      return null;
-    }
-
-    async function extractJobData() {
-      const jobPosting = document.getElementById('jobPostingPaste').value.trim();
-      
-      if (!jobPosting) {
-        alert('Please paste a job posting first');
+    function handleResumeFile(file) {
+      if (file.size > 5 * 1024 * 1024) {
+        alert('File too large. Max 5MB.');
         return;
       }
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        resumeText = e.target.result.substring(0, 15000);
+        document.getElementById('resumeStatus').style.display = 'block';
+        document.getElementById('resumePreview').innerHTML = `<p><strong>File:</strong> ${file.name}</p><p style="color: #a0a0a0; font-size: 13px;">Ready to parse.</p>`;
+        document.getElementById('parseBtn').disabled = false;
+        document.getElementById('resumeError').style.display = 'none';
+      };
+      reader.onerror = () => {
+        document.getElementById('resumeError').style.display = 'block';
+      };
+      reader.readAsText(file);
+    }
 
-      const button = event.target;
-      button.textContent = '⏳ Extracting...';
-      button.disabled = true;
+    async function parseResume() {
+      const btn = document.getElementById('parseBtn');
+      btn.textContent = 'Parsing...';
+      btn.disabled = true;
 
       try {
         const response = await fetch(
-          "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+          "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
           {
             method: "POST",
             headers: {
@@ -430,14 +422,72 @@ Give actionable advice. Be honest. If there's a contradiction in their prioritie
               "x-goog-api-key": "AIzaSyDJXDxYHkMmah8gzTEpW4dW9h97HPpm0JI"
             },
             body: JSON.stringify({
-              contents: [
-                {
-                  parts: [
-                    {
-                      text: `Extract job information from this posting. Return ONLY valid JSON with these fields. If a field is not mentioned, use null. Salary should be a number (just the base salary, annual). HoursPerWeek should be a number (default 45 if not mentioned). IsRemote should be true/false. FundingStage should be "seed", "series-a", "growth", or "public" (infer if needed).
+              contents: [{
+                parts: [{
+                  text: `Extract structured data from this resume. Return ONLY valid JSON.\n\n{
+  "currentTitle": "string or null",
+  "yearsOfExperience": number,
+  "level": "junior" | "mid" | "senior" | "lead" | "staff" | "principal",
+  "topSkills": ["skill1", "skill2", ...],
+  "achievements": ["bullet1", "bullet2", ...]
+}\n\nResume text:\n${resumeText.substring(0, 12000)}`
+                }]
+              }]
+            })
+          }
+        );
 
-JSON format:
-{
+        const data = await response.json();
+        const text = data.candidates[0].content.parts[0].text;
+        const jsonMatch = text.match(/\{[\s\S]*\}/);
+        if (!jsonMatch) throw new Error("No JSON found");
+
+        resumeData = JSON.parse(jsonMatch[0]);
+
+        if (resumeData.currentTitle) document.getElementById('currentJobTitle').value = resumeData.currentTitle;
+        if (resumeData.yearsOfExperience) document.getElementById('yearsExp').value = resumeData.yearsOfExperience;
+
+        document.getElementById('resumePreview').innerHTML = `
+          <p style="color: #64ff9f;">Parsed successfully!</p>
+          <p><strong>Title:</strong> ${resumeData.currentTitle || 'N/A'}</p>
+          <p><strong>Level:</strong> ${resumeData.level || 'N/A'}</p>
+          <p><strong>Years Exp:</strong> ${resumeData.yearsOfExperience || 'N/A'}</p>
+          <p><strong>Skills:</strong> ${resumeData.topSkills?.slice(0, 5).join(', ') || 'None'}</p>
+        `;
+        alert('Resume parsed! Profile updated.');
+        goToProfileScreen();
+      } catch (err) {
+        console.error(err);
+        document.getElementById('resumeError').style.display = 'block';
+        document.getElementById('resumeError').innerHTML = `<p style="color: #ff6b6b;">Parse failed: ${err.message}</p>`;
+      } finally {
+        btn.textContent = 'Parse & Update Profile';
+        btn.disabled = false;
+      }
+    }
+
+    async function extractJobData() {
+      const jobPosting = document.getElementById('jobPostingPaste').value.trim();
+      if (!jobPosting) {
+        alert('Please paste a job posting first');
+        return;
+      }
+      const button = event.target;
+      button.textContent = 'Extracting...';
+      button.disabled = true;
+      try {
+        const response = await fetch(
+          "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "x-goog-api-key": "AIzaSyDJXDxYHkMmah8gzTEpW4dW9h97HPpm0JI"
+            },
+            body: JSON.stringify({
+              contents: [{
+                parts: [{
+                  text: `Extract job info. Return ONLY JSON.\n\n{
   "jobTitle": "string",
   "company": "string",
   "baseSalary": number or null,
@@ -445,34 +495,18 @@ JSON format:
   "isRemote": boolean,
   "fundingStage": "growth",
   "teamSize": number or null
-}
-
-Job posting:
-${jobPosting}`
-                    }
-                  ]
-                }
-              ]
+}\n\nJob posting:\n${jobPosting}`
+                }]
+              }]
             })
           }
         );
-
         const data = await response.json();
-        
-        if (data.error) {
-          throw new Error(data.error.message);
-        }
-
         const textContent = data.candidates[0].content.parts[0].text;
         const jsonMatch = textContent.match(/\{[\s\S]*\}/);
-        
-        if (!jsonMatch) {
-          throw new Error('Could not extract data');
-        }
-
+        if (!jsonMatch) throw new Error('Could not extract data');
         const extracted = JSON.parse(jsonMatch[0]);
 
-        // Fill in the form
         if (extracted.jobTitle) document.getElementById('jobTitle').value = extracted.jobTitle;
         if (extracted.company) document.getElementById('company').value = extracted.company;
         if (extracted.baseSalary) document.getElementById('baseSalary').value = extracted.baseSalary;
@@ -481,16 +515,15 @@ ${jobPosting}`
         if (extracted.teamSize) document.getElementById('teamSize').value = extracted.teamSize;
         document.getElementById('isRemote').checked = extracted.isRemote === true;
 
-        button.textContent = '✅ Filled!';
+        button.textContent = 'Filled!';
         setTimeout(() => {
-          button.textContent = '🤖 Auto-Fill from Posting';
+          button.textContent = 'Auto-Fill from Posting';
           button.disabled = false;
         }, 2000);
-
       } catch (error) {
         console.error('Error:', error);
         alert('Failed to extract data. Try pasting again or fill manually.');
-        button.textContent = '🤖 Auto-Fill from Posting';
+        button.textContent = 'Auto-Fill from Posting';
         button.disabled = false;
       }
     }
@@ -509,136 +542,100 @@ ${jobPosting}`
       return ranges[key];
     }
 
+    async function getAIAnalysis(profile, job, analysis) {
+      const prompt = `You are a career coach. Give 1-2 sentences of honest advice.\nUser wants: Salary (${profile.priority_salary}/5), Balance (${profile.priority_balance}/5), Growth (${profile.priority_growth}/5), Stability (${profile.priority_stability}/5), Remote (${profile.priority_remote}/5)\nCurrent: $${profile.currentSalary}/yr, ${profile.currentHours}h/wk\nOffer: ${job.jobTitle} @ ${job.company}, $${job.baseSalary}/yr, ${job.hoursPerWeek}h/wk\nOur rec: ${analysis.recommendation}\nBe direct.`;
+      try {
+        const response = await fetch(
+          "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "x-goog-api-key": "AIzaSyDJXDxYHkMmah8gzTEpW4dW9h97HPpm0JI"
+            },
+            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+          }
+        );
+        const data = await response.json();
+        return data.candidates?.[0]?.content?.parts?.[0]?.text || "Think carefully — this is your career.";
+      } catch {
+        return "Think carefully — this is your career.";
+      }
+    }
+
     function calculateDecisionScore(profile, job) {
       let score = 0;
       let breakdown = {};
       let pros = [];
       let cons = [];
 
-      // SALARY
-      const salaryChange = job.baseSalary - profile.currentSalary;
-      const salaryPercent = (salaryChange / profile.currentSalary) * 100;
-      
-      if (salaryPercent >= 15) {
-        score += profile.priority_salary * 0.5;
-        breakdown.salary = `+${salaryPercent.toFixed(1)}% raise`;
-        pros.push(`${salaryPercent.toFixed(0)}% salary increase`);
-      } else if (salaryPercent >= 5) {
-        score += profile.priority_salary * 0.2;
-        breakdown.salary = `+${salaryPercent.toFixed(1)}% raise`;
-        pros.push(`${salaryPercent.toFixed(0)}% salary increase`);
-      } else if (salaryPercent < 0) {
-        score -= profile.priority_salary * 0.3;
-        breakdown.salary = `${salaryPercent.toFixed(1)}% cut`;
-        cons.push(`${Math.abs(salaryPercent).toFixed(0)}% salary cut`);
-      } else {
-        breakdown.salary = `No change`;
-      }
-
-      // BALANCE
-      const hours = job.hoursPerWeek;
-      const hourChange = hours - profile.currentHours;
-      if (hours > 50) {
-        score -= profile.priority_balance * 0.4;
-        breakdown.balance = `${hours} hrs/week`;
-        cons.push(`Long hours: ${hours}hrs/week (+${hourChange > 0 ? '+' : ''}${hourChange})`);
-      } else if (hours > 45) {
-        score -= profile.priority_balance * 0.1;
-        breakdown.balance = `${hours} hrs/week`;
-        cons.push(`Slightly more hours: ${hours}hrs/week`);
-      } else {
-        score += profile.priority_balance * 0.3;
-        breakdown.balance = `${hours} hrs/week`;
-        pros.push(`Good work-life balance: ${hours}hrs/week`);
-      }
-
-      // STABILITY
-      const stage = job.fundingStage;
-      if (stage === 'seed') {
-        score -= profile.priority_stability * 0.5;
-        breakdown.stability = `Seed - HIGH RISK`;
-        cons.push(`High risk: Seed stage startup`);
-      } else if (stage === 'series-a') {
-        score -= profile.priority_stability * 0.2;
-        breakdown.stability = `Series A - moderate risk`;
-        cons.push(`Moderate risk: Series A stage`);
-      } else if (stage === 'growth') {
-        score += profile.priority_stability * 0.1;
-        breakdown.stability = `Growth - stable`;
-        pros.push(`Stable: Growth stage company`);
-      } else if (stage === 'public') {
-        score += profile.priority_stability * 0.5;
-        breakdown.stability = `Public - very safe`;
-        pros.push(`Very stable: Public company`);
-      }
-
-      // GROWTH
-      const teamSize = job.teamSize;
-      if (teamSize > 10) {
-        score += profile.priority_growth * 0.4;
-        breakdown.growth = `Large team`;
-        pros.push(`Good growth opportunity: Large team`);
-      } else if (teamSize > 5) {
-        score += profile.priority_growth * 0.2;
-        breakdown.growth = `Medium team`;
-      } else if (teamSize <= 3) {
-        score -= profile.priority_growth * 0.3;
-        breakdown.growth = `Small team`;
-        cons.push(`Limited growth: Very small team`);
-      }
-
-      // REMOTE
-      if (profile.priority_remote >= 4) {
-        if (job.isRemote) {
-          score += 3;
-          breakdown.remote = `Remote ✅`;
-          pros.push(`Fully remote - you wanted this`);
-        } else {
-          score -= 2;
-          breakdown.remote = `On-site`;
-          cons.push(`On-site only - not what you wanted`);
+      // Resume-based bonuses
+      let skillMatchBonus = 0;
+      let levelMatch = '';
+      if (resumeData && job.jobTitle) {
+        const jobLower = job.jobTitle.toLowerCase();
+        if (jobLower.includes('senior') && ['senior', 'staff', 'lead', 'principal'].includes(resumeData.level)) {
+          levelMatch = 'Senior role - you’re qualified';
+          skillMatchBonus += 2;
+        } else if (jobLower.includes('junior') && resumeData.level === 'junior') {
+          levelMatch = 'Junior role - good fit';
+          skillMatchBonus += 1;
+        }
+        if (resumeData.topSkills) {
+          const matched = resumeData.topSkills.filter(s => jobLower.includes(s.toLowerCase()));
+          if (matched.length >= 3) {
+            skillMatchBonus += 2;
+            pros.push(`Skill match: ${matched.slice(0,3).join(', ')}`);
+          } else if (matched.length === 0) {
+            skillMatchBonus -= 1;
+            cons.push(`Skill gap detected`);
+          }
         }
       }
+      score += skillMatchBonus;
+      if (levelMatch) breakdown.levelFit = levelMatch;
+
+      // Salary
+      const salaryChange = job.baseSalary - profile.currentSalary;
+      const salaryPercent = (salaryChange / profile.currentSalary) * 100;
+      if (salaryPercent >= 15) { score += profile.priority_salary * 0.5; pros.push(`${salaryPercent.toFixed(0)}% raise`); }
+      else if (salaryPercent < 0) { score -= profile.priority_salary * 0.3; cons.push(`${Math.abs(salaryPercent).toFixed(0)}% pay cut`); }
+
+      // Balance
+      const hourChange = job.hoursPerWeek - profile.currentHours;
+      if (job.hoursPerWeek > 50) { score -= profile.priority_balance * 0.4; cons.push(`Long hours: ${job.hoursPerWeek}h/wk`); }
+      else if (job.hoursPerWeek <= 40) { score += profile.priority_balance * 0.3; pros.push(`Great balance`); }
+
+      // Stability
+      if (job.fundingStage === 'seed') { score -= profile.priority_stability * 0.5; cons.push(`High risk: Seed stage`); }
+      else if (job.fundingStage === 'public') { score += profile.priority_stability * 0.5; pros.push(`Very stable`); }
+
+      // Remote
+      if (profile.priority_remote >= 4 && job.isRemote) { score += 3; pros.push(`Fully remote`); }
 
       let recommendation = 'UNDECIDED';
-      let explanation = '';
-      
-      if (score >= 6) {
-        recommendation = 'TAKE ✅';
-        explanation = 'Strong yes. This aligns well with your priorities. The pros outweigh the cons.';
-      } else if (score >= 3) {
-        recommendation = 'TAKE ✅';
-        explanation = 'Yes. Good overall fit. This is a solid move.';
-      } else if (score >= -1) {
-        recommendation = 'NEGOTIATE 🤝';
-        explanation = 'Close call. Consider negotiating on the weak points to make it work.';
-      } else if (score >= -4) {
-        recommendation = 'PROBABLY PASS ⚠️';
-        explanation = 'Lean towards passing. Better opportunities likely exist. Only take if desperate.';
-      } else {
-        recommendation = 'PASS ❌';
-        explanation = 'Strong no. This does not fit your priorities or situation.';
-      }
+      if (score >= 6) recommendation = 'TAKE';
+      else if (score >= 3) recommendation = 'TAKE';
+      else if (score >= -1) recommendation = 'NEGOTIATE';
+      else if (score >= -4) recommendation = 'PROBABLY PASS';
+      else recommendation = 'PASS';
 
-      return { score: score.toFixed(1), recommendation, breakdown, explanation, pros, cons };
+      return { score: score.toFixed(1), recommendation, breakdown, pros, cons };
     }
 
-    function analyzeOffer() {
-      const currentSalary = parseInt(document.getElementById('currentSalary').value);
-      const baseSalary = parseInt(document.getElementById('baseSalary').value);
+    async function analyzeOffer() {
+      const currentSalary = parseInt(document.getElementById('currentSalary').value) || 0;
+      const baseSalary = parseInt(document.getElementById('baseSalary').value) || 0;
       const jobTitle = document.getElementById('jobTitle').value;
       const company = document.getElementById('company').value;
-      const currentJobTitle = document.getElementById('currentJobTitle').value;
-      const currentHours = parseInt(document.getElementById('currentHours').value);
-
       if (!baseSalary || !jobTitle || !company) {
-        alert('Please fill in job title, company, and salary');
+        alert('Fill title, company, and salary');
         return;
       }
 
       const profile = {
         currentSalary,
-        currentHours,
+        currentHours: parseInt(document.getElementById('currentHours').value),
         priority_salary: parseInt(document.getElementById('prioritySalary').value),
         priority_balance: parseInt(document.getElementById('priorityBalance').value),
         priority_growth: parseInt(document.getElementById('priorityGrowth').value),
@@ -659,113 +656,85 @@ ${jobPosting}`
 
       const analysis = calculateDecisionScore(profile, job);
       const salaryData = getSalaryData(jobTitle);
-      
-      // Get AI analysis
+
       const analyzeBtn = document.querySelector('[onclick="analyzeOffer()"]');
       if (analyzeBtn) {
-        analyzeBtn.textContent = '⏳ Analyzing...';
+        analyzeBtn.textContent = 'Analyzing...';
         analyzeBtn.disabled = true;
       }
 
-      getAIAnalysis(profile, job, analysis).then(aiInsight => {
-        analysis.aiInsight = aiInsight;
-        
-        decisions.push({ ...analysis, job, salaryData, timestamp: new Date().toLocaleString() });
-        localStorage.setItem('careermoveDecisions', JSON.stringify(decisions));
+      const aiInsight = await getAIAnalysis(profile, job, analysis);
+      analysis.aiInsight = aiInsight;
 
-        displayResult(analysis, salaryData, job, profile);
-        showScreen('resultScreen');
-        
-        if (analyzeBtn) {
-          analyzeBtn.textContent = 'Analyze This Offer';
-          analyzeBtn.disabled = false;
-        }
-      }).catch(error => {
-        console.error('AI analysis failed:', error);
-        analysis.aiInsight = null;
-        
-        decisions.push({ ...analysis, job, salaryData, timestamp: new Date().toLocaleString() });
-        localStorage.setItem('careermoveDecisions', JSON.stringify(decisions));
+      decisions.push({ ...analysis, job, salaryData, timestamp: new Date().toLocaleString() });
+      localStorage.setItem('careermoveDecisions', JSON.stringify(decisions));
 
-        displayResult(analysis, salaryData, job, profile);
-        showScreen('resultScreen');
-        
-        if (analyzeBtn) {
-          analyzeBtn.textContent = 'Analyze This Offer';
-          analyzeBtn.disabled = false;
-        }
-      });
+      displayResult(analysis, salaryData, job, profile);
+      showScreen('resultScreen');
+
+      if (analyzeBtn) {
+        analyzeBtn.textContent = 'Analyze This Offer';
+        analyzeBtn.disabled = false;
+      }
     }
 
     function displayResult(analysis, salaryData, job, profile) {
-      const recClass = analysis.recommendation.includes('TAKE') ? 'take' : 
+      const recClass = analysis.recommendation.includes('TAKE') ? 'take' :
                        analysis.recommendation.includes('PASS') ? 'pass' : 'negotiate';
       const percentile = Math.round(((job.baseSalary - salaryData.low) / (salaryData.high - salaryData.low)) * 100);
-      const salaryChange = job.baseSalary - profile.currentSalary;
-      const salaryPercent = ((salaryChange / profile.currentSalary) * 100).toFixed(1);
-      
+      const salaryChange = ((job.baseSalary - profile.currentSalary) / profile.currentSalary * 100).toFixed(1);
+
       let html = `
         <div class="recommendation ${recClass}">${analysis.recommendation}</div>
         <div class="score">Score: ${analysis.score}/10</div>
-        <div class="explanation">${analysis.explanation}</div>
-
+        <div class="explanation">This job ${analysis.recommendation.toLowerCase().includes('take') ? 'fits your goals' : 'has red flags'}.</div>
         ${analysis.aiInsight ? `
-        <div class="salary-data" style="border-left-color: #64ff9f; background: linear-gradient(135deg, rgba(100, 255, 159, 0.1) 0%, rgba(100, 255, 159, 0.05) 100%);">
-          <h3 style="color: #64ff9f;">💡 Career Coach Insight</h3>
-          <p style="color: #c0c0c0; margin: 0;">${analysis.aiInsight}</p>
-        </div>
-        ` : ''}
-
+        <div class="salary-data" style="border-left-color: #64ff9f;">
+          <h3 style="color: #64ff9f;">Career Coach Insight</h3>
+          <p>${analysis.aiInsight}</p>
+        </div>` : ''}
+        ${resumeData ? `
+        <div class="salary-data" style="border-left-color: #ffb347;">
+          <h3 style="color: #ffb347;">Resume Match</h3>
+          <p><strong>Level:</strong> ${resumeData.level || 'N/A'} → ${job.jobTitle}</p>
+          <p><strong>Skills matched:</strong> ${resumeData.topSkills?.filter(s => job.jobTitle.toLowerCase().includes(s.toLowerCase())).length || 0} of ${resumeData.topSkills?.length || 0}</p>
+        </div>` : ''}
         <div class="comparison">
-          <h3 style="color: #00d4ff; margin-bottom: 15px;">Compare to Current</h3>
+          <h3 style="color: #00d4ff;">Compare to Current</h3>
           <div class="comparison-row">
             <div class="comparison-label">Salary</div>
-            <div class="comparison-current">${profile.currentSalary.toLocaleString()}</div>
-            <div class="comparison-new">${job.baseSalary.toLocaleString()} (${salaryPercent > 0 ? '+' : ''}${salaryPercent}%)</div>
+            <div class="comparison-current">$${profile.currentSalary.toLocaleString()}</div>
+            <div class="comparison-new">$${job.baseSalary.toLocaleString()} (${salaryChange > 0 ? '+' : ''}${salaryChange}%)</div>
           </div>
           <div class="comparison-row">
             <div class="comparison-label">Hours/Week</div>
             <div class="comparison-current">${profile.currentHours}h</div>
-            <div class="comparison-new">${job.hoursPerWeek}h (${job.hoursPerWeek - profile.currentHours > 0 ? '+' : ''}${job.hoursPerWeek - profile.currentHours})</div>
-          </div>
-          <div class="comparison-row">
-            <div class="comparison-label">Hourly Rate</div>
-            <div class="comparison-current">${(profile.currentSalary / (profile.currentHours * 52)).toFixed(0)}/hr</div>
-            <div class="comparison-new">${(job.baseSalary / (job.hoursPerWeek * 52)).toFixed(0)}/hr</div>
+            <div class="comparison-new">${job.hoursPerWeek}h</div>
           </div>
         </div>
-
         <div class="salary-data">
-          <h3>Market Data for ${job.jobTitle}</h3>
-          <p><strong>Your offer:</strong> ${job.baseSalary.toLocaleString()}</p>
-          <p><strong>Market range:</strong> ${salaryData.low.toLocaleString()} - ${salaryData.high.toLocaleString()}</p>
-          <p><strong>You're at:</strong> ${percentile}th percentile (${percentile < 33 ? 'below' : percentile < 67 ? 'at' : 'above'} market average)</p>
+          <h3>Market Data</h3>
+          <p><strong>Your offer:</strong> $${job.baseSalary.toLocaleString()}</p>
+          <p><strong>Range:</strong> $${salaryData.low.toLocaleString()} - $${salaryData.high.toLocaleString()}</p>
+          <p><strong>Percentile:</strong> ${percentile}th (${percentile < 33 ? 'below' : percentile < 67 ? 'average' : 'above'} average)</p>
         </div>
-
         <div class="pros-cons">
-          <h3 style="color: #64ff9f; margin-bottom: 12px;">✓ What's Good</h3>
-          ${analysis.pros.length > 0 ? analysis.pros.map(p => `<div class="pro-item">${p}</div>`).join('') : '<div style="color: #a0a0a0;">No major pros</div>'}
+          <h3 style="color: #64ff9f;">What's Good</h3>
+          ${analysis.pros.length ? analysis.pros.map(p => `<div class="pro-item">${p}</div>`).join('') : '<div style="color:#a0a0a0;">None detected</div>'}
         </div>
-
         <div class="pros-cons">
-          <h3 style="color: #ff6b6b; margin-bottom: 12px;">✗ What's Concerning</h3>
-          ${analysis.cons.length > 0 ? analysis.cons.map(c => `<div class="con-item">${c}</div>`).join('') : '<div style="color: #a0a0a0;">No major concerns</div>'}
+          <h3 style="color: #ff6b6b;">Concerns</h3>
+          ${analysis.cons.length ? analysis.cons.map(c => `<div class="con-item">${c}</div>`).join('') : '<div style="color:#a0a0a0;">None detected</div>'}
         </div>
-
         <div class="section">
           <h2>Score Breakdown</h2>`;
       for (let [key, value] of Object.entries(analysis.breakdown)) {
         html += `<div class="breakdown-item"><div class="breakdown-key">${key}</div><div class="breakdown-value">${value}</div></div>`;
       }
       html += `</div>`;
-      
       if (job.concerns) {
-        html += `<div class="salary-data" style="border-left-color: #ff9800;">
-          <h3 style="color: #ff9800;">Your Concerns</h3>
-          <p>${job.concerns}</p>
-        </div>`;
+        html += `<div class="salary-data" style="border-left-color: #ff9800;"><h3 style="color: #ff9800;">Your Concerns</h3><p>${job.concerns}</p></div>`;
       }
-
       document.getElementById('resultContent').innerHTML = html;
     }
 
@@ -775,14 +744,10 @@ ${jobPosting}`
       } else {
         let html = '';
         decisions.forEach((d, i) => {
-          const salaryDiff = d.job.baseSalary - (decisions[i-1]?.job?.baseSalary || d.job.baseSalary);
           html += `<div class="history-item">
             <div class="history-rec">${d.recommendation}</div>
             <div style="color: #c0c0c0; font-weight: 500;">${d.job.jobTitle} @ ${d.job.company}</div>
-            <div style="color:#909090; font-size:13px;">
-              Score: ${d.score}/10 • ${d.job.baseSalary.toLocaleString()} • ${d.job.hoursPerWeek}h/week
-            </div>
-            <div class="history-date">${d.timestamp}</div>
+            <div style="color:#909090; font-size:13px;">Score: ${d.score}/10 • $${d.job.baseSalary.toLocaleString()} • ${d.timestamp}</div>
           </div>`;
         });
         document.getElementById('historyContent').innerHTML = html;
