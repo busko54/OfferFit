@@ -8,7 +8,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #0f0f1e; color: #e0e0e0; line-height: 1.6; }
     
-    /* LANDING PAGE */
     .landing { min-height: 100vh; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; align-items: center; justify-content: center; padding: 40px 20px; text-align: center; position: relative; overflow: hidden; }
     .landing::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(233, 69, 96, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(76, 175, 255, 0.1) 0%, transparent 50%); pointer-events: none; }
     .landing-content { max-width: 900px; color: #fff; position: relative; z-index: 1; }
@@ -18,7 +17,7 @@
     .cta-button { display: inline-block; padding: 16px 48px; background: linear-gradient(135deg, #00d4ff 0%, #4cb5ff 100%); color: #0f0f1e; font-size: 18px; font-weight: 700; border: none; border-radius: 12px; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 30px rgba(76, 181, 255, 0.3); }
     .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 50px rgba(76, 181, 255, 0.5); }
     
-    .social-proof { margin-top: 50px; padding: 25px; background: rgba(76, 181, 255, 0.08); border-radius: 12px; border: 1px solid rgba(76, 181, 255, 0.2); backdrop-filter: blur(10px); }
+    .social-proof { margin-top: 50px; padding: 25px; background: rgba(76, 181, 255, 0.08); border-radius: 12px; border: 1px solid rgba(76, 181, 255, 0.2); }
     .social-proof p { margin: 10px 0; font-size: 15px; color: #c0c0c0; }
     
     .how-it-works { margin-top: 100px; padding-top: 80px; border-top: 1px solid rgba(76, 181, 255, 0.2); }
@@ -34,38 +33,13 @@
     .pain-points h2 { font-size: 36px; margin-bottom: 30px; color: #ff6b6b; font-weight: 800; }
     .pain-points p { margin-bottom: 20px; color: #c0c0c0; }
     
-    .live-example { margin-top: 100px; padding-top: 80px; border-top: 1px solid rgba(76, 181, 255, 0.2); }
-    .live-example h2 { font-size: 42px; margin-bottom: 40px; background: linear-gradient(135deg, #00d4ff 0%, #64ff9f 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800; }
-    .example-card { background: linear-gradient(135deg, rgba(76, 181, 255, 0.05) 0%, rgba(100, 255, 159, 0.05) 100%); padding: 30px; border-radius: 12px; text-align: left; margin-bottom: 20px; border: 1px solid rgba(76, 181, 255, 0.2); }
-    .example-card p { color: #c0c0c0; margin-bottom: 10px; }
-    .example-result { background: linear-gradient(135deg, rgba(100, 255, 159, 0.1) 0%, rgba(76, 181, 255, 0.1) 100%); padding: 25px; border-radius: 8px; text-align: center; margin-top: 20px; border: 1px solid rgba(100, 255, 159, 0.3); }
-    .example-result-text { font-size: 36px; font-weight: 800; margin-bottom: 10px; background: linear-gradient(135deg, #64ff9f 0%, #00d4ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .example-result p { color: #a0a0a0; }
-    
-    .why-section { margin-top: 100px; padding-top: 80px; border-top: 1px solid rgba(76, 181, 255, 0.2); text-align: center; }
-    .why-section h2 { font-size: 42px; margin-bottom: 50px; background: linear-gradient(135deg, #00d4ff 0%, #64ff9f 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800; }
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px; }
-    .feature { text-align: center; padding: 25px; background: linear-gradient(135deg, rgba(76, 181, 255, 0.05) 0%, rgba(100, 255, 159, 0.05) 100%); border-radius: 12px; border: 1px solid rgba(76, 181, 255, 0.2); transition: all 0.3s; }
-    .feature:hover { border-color: rgba(76, 181, 255, 0.4); transform: translateY(-3px); }
-    .feature-icon { font-size: 40px; margin-bottom: 15px; }
-    .feature p { color: #a0a0a0; font-weight: 500; }
-    .feature strong { color: #00d4ff; }
-    
-    .faq { margin-top: 100px; padding-top: 80px; border-top: 1px solid rgba(76, 181, 255, 0.2); }
-    .faq h2 { font-size: 42px; margin-bottom: 50px; text-align: center; background: linear-gradient(135deg, #00d4ff 0%, #64ff9f 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800; }
-    .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .faq-item { background: linear-gradient(135deg, rgba(76, 181, 255, 0.05) 0%, rgba(100, 255, 159, 0.05) 100%); padding: 25px; border-radius: 12px; border: 1px solid rgba(76, 181, 255, 0.2); text-align: left; }
-    .faq-item strong { display: block; margin-bottom: 10px; color: #00d4ff; font-size: 16px; }
-    .faq-item p { color: #a0a0a0; }
-    
     .final-cta { margin-top: 100px; padding: 60px 40px; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(100, 255, 159, 0.1) 100%); border-radius: 16px; text-align: center; border: 2px solid rgba(76, 181, 255, 0.3); }
     .final-cta h2 { font-size: 40px; margin-bottom: 15px; background: linear-gradient(135deg, #00d4ff 0%, #64ff9f 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800; }
     .final-cta p { color: #b0b0b0; margin-bottom: 30px; }
     
-    /* APP SCREENS */
     .app-container { display: none; min-height: 100vh; background: #0f0f1e; padding: 20px; }
     .app-container.show { display: block; }
-    .app-content { max-width: 700px; margin: 0 auto; background: #1a1a2e; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); padding: 40px; border: 1px solid rgba(76, 181, 255, 0.2); }
+    .app-content { max-width: 800px; margin: 0 auto; background: #1a1a2e; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); padding: 40px; border: 1px solid rgba(76, 181, 255, 0.2); }
     .app-header { display: flex; align-items: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid rgba(76, 181, 255, 0.2); }
     .back-button { background: none; border: none; font-size: 28px; cursor: pointer; margin-right: 15px; color: #00d4ff; padding: 0; transition: 0.3s; }
     .back-button:hover { transform: scale(1.1); }
@@ -77,9 +51,9 @@
     .section h2 { font-size: 18px; color: #00d4ff; margin-bottom: 15px; font-weight: 700; }
     .form-group { margin-bottom: 15px; }
     label { display: block; font-size: 14px; font-weight: 600; color: #c0c0c0; margin-bottom: 8px; }
-    input, select { width: 100%; padding: 12px; border: 1px solid rgba(76, 181, 255, 0.3); background: rgba(76, 181, 255, 0.05); border-radius: 8px; font-size: 14px; font-family: inherit; color: #e0e0e0; transition: all 0.3s; }
-    input::placeholder { color: #606070; }
-    input:focus, select:focus { outline: none; border-color: #00d4ff; background: rgba(76, 181, 255, 0.1); box-shadow: 0 0 0 3px rgba(76, 181, 255, 0.15); }
+    input, select, textarea { width: 100%; padding: 12px; border: 1px solid rgba(76, 181, 255, 0.3); background: rgba(76, 181, 255, 0.05); border-radius: 8px; font-size: 14px; font-family: inherit; color: #e0e0e0; transition: all 0.3s; }
+    input::placeholder, textarea::placeholder { color: #606070; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #00d4ff; background: rgba(76, 181, 255, 0.1); box-shadow: 0 0 0 3px rgba(76, 181, 255, 0.15); }
     
     .slider-container { display: flex; align-items: center; gap: 15px; }
     input[type="range"] { flex: 1; cursor: pointer; accent-color: #00d4ff; }
@@ -112,15 +86,27 @@
     .history-rec { font-weight: 700; font-size: 16px; color: #00d4ff; }
     .history-date { font-size: 12px; color: #707080; margin-top: 8px; }
     
+    .pros-cons { background: rgba(76, 181, 255, 0.05); padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid rgba(76, 181, 255, 0.2); }
+    .pros-cons h3 { color: #64ff9f; margin-bottom: 10px; font-size: 16px; }
+    .pro-item { color: #64ff9f; margin: 8px 0; padding-left: 20px; }
+    .pro-item::before { content: '✓ '; font-weight: bold; }
+    .con-item { color: #ff6b6b; margin: 8px 0; padding-left: 20px; }
+    .con-item::before { content: '✗ '; font-weight: bold; }
+    
+    .comparison { background: rgba(76, 181, 255, 0.05); padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid rgba(76, 181, 255, 0.2); }
+    .comparison-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 12px; align-items: center; }
+    .comparison-label { color: #a0a0a0; font-weight: 600; }
+    .comparison-current { color: #c0c0c0; }
+    .comparison-new { color: #00d4ff; font-weight: 700; }
+    
     .hidden { display: none; }
     
     @media (max-width: 768px) {
       .landing h1 { font-size: 48px; }
       .landing .tagline { font-size: 22px; }
       .steps { grid-template-columns: 1fr; }
-      .features-grid { grid-template-columns: 1fr; }
-      .faq-grid { grid-template-columns: 1fr; }
       .app-content { padding: 25px; }
+      .comparison-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -130,12 +116,12 @@
     <div class="landing-content">
       <h1>CareerMove</h1>
       <p class="tagline">Stop making job decisions emotionally.</p>
-      <p class="subtitle">Get a personalized recommendation based on YOUR priorities + real market data. <strong>Free to try. No credit card.</strong></p>
+      <p class="subtitle">Get a personalized recommendation based on YOUR priorities + real market data. <strong>Free. No credit card.</strong></p>
       <button class="cta-button" onclick="startApp()">Analyze My Next Offer →</button>
 
       <div class="social-proof">
-        <p><strong>⭐ 4.8/5</strong> from 200+ users</p>
-        <p>"This app saved me from accepting a job I would've hated" - Alex, Engineer</p>
+        <p><strong>⭐ 4.8/5</strong> from early users</p>
+        <p>"This actually helped me think clearly about what matters" - Test User</p>
       </div>
 
       <div class="how-it-works">
@@ -144,90 +130,32 @@
           <div class="step">
             <div class="step-number">1</div>
             <h3>Your Profile</h3>
-            <p>Tell us what matters: salary, growth, balance, stability, remote work.</p>
+            <p>Tell us your current situation and what matters most to you.</p>
           </div>
           <div class="step">
             <div class="step-number">2</div>
-            <h3>Enter Offer</h3>
-            <p>Share job details: title, company, salary, hours, stage.</p>
+            <h3>Enter Job Offer</h3>
+            <p>Paste the job details or enter them manually.</p>
           </div>
           <div class="step">
             <div class="step-number">3</div>
             <h3>Get Recommendation</h3>
-            <p>Receive: TAKE, PASS, or NEGOTIATE with full reasoning.</p>
+            <p>See if you should TAKE, PASS, or NEGOTIATE. With reasoning.</p>
           </div>
         </div>
       </div>
 
       <div class="pain-points">
-        <h2>The Real Cost of Getting It Wrong</h2>
-        <p><strong>❌ Story 1:</strong> Took a $20K raise but worked 60+ hrs/week. Left after 8 months. Lost $40K in salary + opportunity cost.</p>
-        <p><strong>❌ Story 2:</strong> Chose "stable company." Got laid off 6 months later. Regrets not taking the growth opportunity.</p>
-        <p><strong>❌ Story 3:</strong> Ignored gut feeling. Took startup role. Company failed. 2 years wasted.</p>
-      </div>
-
-      <div class="live-example">
-        <h2>See It In Action</h2>
-        <div class="example-card">
-          <p><strong>YOUR PROFILE:</strong> Balance (5/5) • Growth (4/5) • Stability (4/5)</p>
-          <p><strong>JOB OFFER:</strong> Senior Engineer • $95K (+12% raise) • 55 hrs/week • Series A startup</p>
-          <div class="example-result">
-            <div class="example-result-text">NEGOTIATE 🤝</div>
-            <p>Close call. The raise is good, but you're trading 15 extra hours/week for unstable growth.</p>
-            <p style="margin-top: 15px; font-size: 14px; color: #64ff9f;">→ Ask for $102K + 2 remote days/week</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="why-section">
-        <h2>Why CareerMove?</h2>
-        <div class="features-grid">
-          <div class="feature">
-            <div class="feature-icon">📊</div>
-            <p><strong>Not ChatGPT</strong> - We remember YOUR priorities.</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon">📈</div>
-            <p><strong>Learn Over Time</strong> - See patterns in decisions.</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon">⚡</div>
-            <p><strong>2 Minutes</strong> - Instant recommendations.</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon">🎯</div>
-            <p><strong>Your Framework</strong> - Based on YOUR values.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq">
-        <h2>Questions?</h2>
-        <div class="faq-grid">
-          <div class="faq-item">
-            <strong>⏱️ How long does it take?</strong>
-            <p>About 2 minutes. Profile + offer details.</p>
-          </div>
-          <div class="faq-item">
-            <strong>🔒 Is my data private?</strong>
-            <p>100% private. Data stays on your device.</p>
-          </div>
-          <div class="faq-item">
-            <strong>💰 When do I pay?</strong>
-            <p>Free: 1 eval/month. Premium ($5/mo): unlimited.</p>
-          </div>
-          <div class="faq-item">
-            <strong>📊 How accurate?</strong>
-            <p>Framework based on YOUR priorities.</p>
-          </div>
-        </div>
+        <h2>Why People Make Bad Job Decisions</h2>
+        <p><strong>❌ No Framework:</strong> You gut-feel it instead of analyzing systematically.</p>
+        <p><strong>❌ No Comparison:</strong> You don't compare to current situation or market rates.</p>
+        <p><strong>❌ No Memory:</strong> You forget your own priorities and repeat mistakes.</p>
       </div>
 
       <div class="final-cta">
-        <h2>Ready to stop guessing?</h2>
-        <p>2 minutes. Your job decision deserves at least that.</p>
-        <button class="cta-button" onclick="startApp()" style="padding: 18px 56px; font-size: 18px;">Start Free - No Credit Card</button>
-        <p style="color: #909090; margin-top: 20px; font-size: 13px;">Free forever tier available. Premium $5/mo for unlimited evaluations.</p>
+        <h2>Make better career decisions</h2>
+        <p>Takes 3 minutes. You're thinking about this anyway.</p>
+        <button class="cta-button" onclick="startApp()" style="padding: 18px 56px; font-size: 18px;">Start Now - Free</button>
       </div>
     </div>
   </div>
@@ -238,16 +166,35 @@
       <!-- PROFILE SCREEN -->
       <div id="profileScreen">
         <h1>Your Profile</h1>
-        <p class="subtitle">What matters to you?</p>
+        <p class="subtitle">Tell us about your current situation</p>
         
         <div class="section">
+          <div class="form-group">
+            <label>Current Job Title</label>
+            <input type="text" id="currentJobTitle" placeholder="e.g., Software Engineer">
+          </div>
+
           <div class="form-group">
             <label>Current Salary ($)</label>
             <input type="number" id="currentSalary" value="80000">
           </div>
 
           <div class="form-group">
-            <label>Salary Priority</label>
+            <label>Current Hours Per Week</label>
+            <input type="number" id="currentHours" value="40">
+          </div>
+
+          <div class="form-group">
+            <label>Years of Experience</label>
+            <input type="number" id="yearsExp" value="5" min="0">
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>What Matters Most? (1-5 scale)</h2>
+          
+          <div class="form-group">
+            <label>💰 Salary</label>
             <div class="slider-container">
               <input type="range" id="prioritySalary" min="1" max="5" value="3">
               <span class="slider-value" id="salaryValue">3</span>
@@ -255,7 +202,7 @@
           </div>
 
           <div class="form-group">
-            <label>Work-Life Balance Priority</label>
+            <label>⚖️ Work-Life Balance</label>
             <div class="slider-container">
               <input type="range" id="priorityBalance" min="1" max="5" value="4">
               <span class="slider-value" id="balanceValue">4</span>
@@ -263,7 +210,7 @@
           </div>
 
           <div class="form-group">
-            <label>Career Growth Priority</label>
+            <label>📈 Career Growth</label>
             <div class="slider-container">
               <input type="range" id="priorityGrowth" min="1" max="5" value="3">
               <span class="slider-value" id="growthValue">3</span>
@@ -271,7 +218,7 @@
           </div>
 
           <div class="form-group">
-            <label>Stability Priority</label>
+            <label>🛡️ Stability</label>
             <div class="slider-container">
               <input type="range" id="priorityStability" min="1" max="5" value="4">
               <span class="slider-value" id="stabilityValue">4</span>
@@ -279,7 +226,7 @@
           </div>
 
           <div class="form-group">
-            <label>Remote Work Priority</label>
+            <label>🏠 Remote Work</label>
             <div class="slider-container">
               <input type="range" id="priorityRemote" min="1" max="5" value="3">
               <span class="slider-value" id="remoteValue">3</span>
@@ -288,8 +235,8 @@
         </div>
 
         <div class="button-row">
-          <button class="btn-primary" onclick="goToJobScreen()">Evaluate Offer</button>
-          <button class="btn-secondary" onclick="showHistory()">History</button>
+          <button class="btn-primary" onclick="goToJobScreen()">Next: Enter Job Offer</button>
+          <button class="btn-secondary" onclick="showHistory()">View History</button>
         </div>
       </div>
 
@@ -297,7 +244,7 @@
       <div id="jobScreen" class="hidden">
         <div class="app-header">
           <button class="back-button" onclick="goToProfileScreen()">←</button>
-          <h1>Job Offer</h1>
+          <h1>Job Offer Details</h1>
         </div>
         
         <div class="section">
@@ -324,25 +271,30 @@
           <div class="form-group">
             <label>Company Stage</label>
             <select id="fundingStage">
-              <option value="seed">Seed Startup</option>
-              <option value="series-a">Series A</option>
-              <option value="growth" selected>Growth Stage</option>
-              <option value="public">Public Company</option>
+              <option value="seed">Seed Startup (High Risk)</option>
+              <option value="series-a">Series A (Moderate Risk)</option>
+              <option value="growth" selected>Growth Stage (Stable)</option>
+              <option value="public">Public Company (Very Safe)</option>
             </select>
           </div>
 
           <div class="form-group">
             <label>Team Size</label>
-            <input type="number" id="teamSize" value="5">
+            <input type="number" id="teamSize" value="5" min="1">
           </div>
 
           <div class="form-group">
             <label><input type="checkbox" id="isRemote"> Fully Remote?</label>
           </div>
+
+          <div class="form-group">
+            <label>Any concerns? (Optional)</label>
+            <textarea id="concerns" placeholder="e.g., Long commute, unclear growth path, layoff risk..."></textarea>
+          </div>
         </div>
 
         <div class="button-row">
-          <button class="btn-primary" onclick="analyzeOffer()">Analyze</button>
+          <button class="btn-primary" onclick="analyzeOffer()">Analyze This Offer</button>
         </div>
       </div>
 
@@ -350,14 +302,14 @@
       <div id="resultScreen" class="hidden">
         <div class="app-header">
           <button class="back-button" onclick="goToJobScreen()">←</button>
-          <h1>Recommendation</h1>
+          <h1>Analysis</h1>
         </div>
         
         <div id="resultContent"></div>
 
         <div class="button-row">
-          <button class="btn-primary" onclick="goToJobScreen()">Try Another</button>
-          <button class="btn-secondary" onclick="goToProfileScreen()">Back to Profile</button>
+          <button class="btn-primary" onclick="goToJobScreen()">Analyze Another</button>
+          <button class="btn-secondary" onclick="goToProfileScreen()">Update Profile</button>
         </div>
       </div>
 
@@ -365,11 +317,11 @@
       <div id="historyScreen" class="hidden">
         <div class="app-header">
           <button class="back-button" onclick="goToProfileScreen()">←</button>
-          <h1>Decision History</h1>
+          <h1>Your Decisions</h1>
         </div>
         <div id="historyContent"></div>
         <div class="button-row">
-          <button class="btn-secondary" onclick="goToProfileScreen()" style="margin-top: 20px;">Back</button>
+          <button class="btn-secondary" onclick="goToProfileScreen()">Back</button>
         </div>
       </div>
     </div>
@@ -380,4 +332,281 @@
 
     ['prioritySalary', 'priorityBalance', 'priorityGrowth', 'priorityStability', 'priorityRemote'].forEach(id => {
       document.getElementById(id).addEventListener('input', (e) => {
-        const name = id.replace('priority', '').toLowerCase
+        const name = id.replace('priority', '').toLowerCase();
+        document.getElementById(name + 'Value').textContent = e.target.value;
+      });
+    });
+
+    function startApp() {
+      document.getElementById('landingPage').style.display = 'none';
+      document.getElementById('appContainer').classList.add('show');
+    }
+
+    function showScreen(screenId) {
+      document.querySelectorAll('[id$="Screen"]').forEach(el => el.classList.add('hidden'));
+      document.getElementById(screenId).classList.remove('hidden');
+    }
+
+    function goToProfileScreen() { showScreen('profileScreen'); }
+    function goToJobScreen() { showScreen('jobScreen'); }
+
+    function getSalaryData(jobTitle) {
+      const ranges = {
+        'engineer': { low: 90000, high: 200000, median: 140000 },
+        'manager': { low: 100000, high: 220000, median: 160000 },
+        'designer': { low: 70000, high: 150000, median: 110000 },
+        'product': { low: 95000, high: 190000, median: 140000 },
+        'developer': { low: 85000, high: 180000, median: 135000 },
+        'analyst': { low: 65000, high: 150000, median: 105000 },
+        'default': { low: 50000, high: 150000, median: 90000 }
+      };
+      const key = Object.keys(ranges).find(k => jobTitle.toLowerCase().includes(k)) || 'default';
+      return ranges[key];
+    }
+
+    function calculateDecisionScore(profile, job) {
+      let score = 0;
+      let breakdown = {};
+      let pros = [];
+      let cons = [];
+
+      // SALARY
+      const salaryChange = job.baseSalary - profile.currentSalary;
+      const salaryPercent = (salaryChange / profile.currentSalary) * 100;
+      
+      if (salaryPercent >= 15) {
+        score += profile.priority_salary * 0.5;
+        breakdown.salary = `+${salaryPercent.toFixed(1)}% raise`;
+        pros.push(`${salaryPercent.toFixed(0)}% salary increase`);
+      } else if (salaryPercent >= 5) {
+        score += profile.priority_salary * 0.2;
+        breakdown.salary = `+${salaryPercent.toFixed(1)}% raise`;
+        pros.push(`${salaryPercent.toFixed(0)}% salary increase`);
+      } else if (salaryPercent < 0) {
+        score -= profile.priority_salary * 0.3;
+        breakdown.salary = `${salaryPercent.toFixed(1)}% cut`;
+        cons.push(`${Math.abs(salaryPercent).toFixed(0)}% salary cut`);
+      } else {
+        breakdown.salary = `No change`;
+      }
+
+      // BALANCE
+      const hours = job.hoursPerWeek;
+      const hourChange = hours - profile.currentHours;
+      if (hours > 50) {
+        score -= profile.priority_balance * 0.4;
+        breakdown.balance = `${hours} hrs/week`;
+        cons.push(`Long hours: ${hours}hrs/week (+${hourChange > 0 ? '+' : ''}${hourChange})`);
+      } else if (hours > 45) {
+        score -= profile.priority_balance * 0.1;
+        breakdown.balance = `${hours} hrs/week`;
+        cons.push(`Slightly more hours: ${hours}hrs/week`);
+      } else {
+        score += profile.priority_balance * 0.3;
+        breakdown.balance = `${hours} hrs/week`;
+        pros.push(`Good work-life balance: ${hours}hrs/week`);
+      }
+
+      // STABILITY
+      const stage = job.fundingStage;
+      if (stage === 'seed') {
+        score -= profile.priority_stability * 0.5;
+        breakdown.stability = `Seed - HIGH RISK`;
+        cons.push(`High risk: Seed stage startup`);
+      } else if (stage === 'series-a') {
+        score -= profile.priority_stability * 0.2;
+        breakdown.stability = `Series A - moderate risk`;
+        cons.push(`Moderate risk: Series A stage`);
+      } else if (stage === 'growth') {
+        score += profile.priority_stability * 0.1;
+        breakdown.stability = `Growth - stable`;
+        pros.push(`Stable: Growth stage company`);
+      } else if (stage === 'public') {
+        score += profile.priority_stability * 0.5;
+        breakdown.stability = `Public - very safe`;
+        pros.push(`Very stable: Public company`);
+      }
+
+      // GROWTH
+      const teamSize = job.teamSize;
+      if (teamSize > 10) {
+        score += profile.priority_growth * 0.4;
+        breakdown.growth = `Large team`;
+        pros.push(`Good growth opportunity: Large team`);
+      } else if (teamSize > 5) {
+        score += profile.priority_growth * 0.2;
+        breakdown.growth = `Medium team`;
+      } else if (teamSize <= 3) {
+        score -= profile.priority_growth * 0.3;
+        breakdown.growth = `Small team`;
+        cons.push(`Limited growth: Very small team`);
+      }
+
+      // REMOTE
+      if (profile.priority_remote >= 4) {
+        if (job.isRemote) {
+          score += 3;
+          breakdown.remote = `Remote ✅`;
+          pros.push(`Fully remote - you wanted this`);
+        } else {
+          score -= 2;
+          breakdown.remote = `On-site`;
+          cons.push(`On-site only - not what you wanted`);
+        }
+      }
+
+      let recommendation = 'UNDECIDED';
+      let explanation = '';
+      
+      if (score >= 7) {
+        recommendation = 'TAKE ✅';
+        explanation = 'Strong yes. This aligns well with your priorities. The pros outweigh the cons.';
+      } else if (score >= 4) {
+        recommendation = 'TAKE ✅';
+        explanation = 'Yes. Good overall fit. This is a solid move.';
+      } else if (score >= 0) {
+        recommendation = 'NEGOTIATE 🤝';
+        explanation = 'Close call. Consider negotiating on the weak points to make it work.';
+      } else if (score >= -3) {
+        recommendation = 'PROBABLY PASS ⚠️';
+        explanation = 'Lean towards passing. Better opportunities likely exist. Only take if desperate.';
+      } else {
+        recommendation = 'PASS ❌';
+        explanation = 'Strong no. This does not fit your priorities or situation.';
+      }
+
+      return { score: score.toFixed(1), recommendation, breakdown, explanation, pros, cons };
+    }
+
+    function analyzeOffer() {
+      const currentSalary = parseInt(document.getElementById('currentSalary').value);
+      const baseSalary = parseInt(document.getElementById('baseSalary').value);
+      const jobTitle = document.getElementById('jobTitle').value;
+      const company = document.getElementById('company').value;
+      const currentJobTitle = document.getElementById('currentJobTitle').value;
+      const currentHours = parseInt(document.getElementById('currentHours').value);
+
+      if (!baseSalary || !jobTitle || !company) {
+        alert('Please fill in job title, company, and salary');
+        return;
+      }
+
+      const profile = {
+        currentSalary,
+        currentHours,
+        priority_salary: parseInt(document.getElementById('prioritySalary').value),
+        priority_balance: parseInt(document.getElementById('priorityBalance').value),
+        priority_growth: parseInt(document.getElementById('priorityGrowth').value),
+        priority_stability: parseInt(document.getElementById('priorityStability').value),
+        priority_remote: parseInt(document.getElementById('priorityRemote').value),
+      };
+
+      const job = {
+        baseSalary,
+        hoursPerWeek: parseInt(document.getElementById('hoursPerWeek').value),
+        fundingStage: document.getElementById('fundingStage').value,
+        teamSize: parseInt(document.getElementById('teamSize').value),
+        isRemote: document.getElementById('isRemote').checked,
+        jobTitle,
+        company,
+        concerns: document.getElementById('concerns').value
+      };
+
+      const analysis = calculateDecisionScore(profile, job);
+      const salaryData = getSalaryData(jobTitle);
+      
+      decisions.push({ ...analysis, job, salaryData, timestamp: new Date().toLocaleString() });
+      localStorage.setItem('careermoveDecisions', JSON.stringify(decisions));
+
+      displayResult(analysis, salaryData, job, profile);
+      showScreen('resultScreen');
+    }
+
+    function displayResult(analysis, salaryData, job, profile) {
+      const recClass = analysis.recommendation.includes('TAKE') ? 'take' : 
+                       analysis.recommendation.includes('PASS') ? 'pass' : 'negotiate';
+      const percentile = Math.round(((job.baseSalary - salaryData.low) / (salaryData.high - salaryData.low)) * 100);
+      const salaryChange = job.baseSalary - profile.currentSalary;
+      const salaryPercent = ((salaryChange / profile.currentSalary) * 100).toFixed(1);
+      
+      let html = `
+        <div class="recommendation ${recClass}">${analysis.recommendation}</div>
+        <div class="score">Score: ${analysis.score}/10</div>
+        <div class="explanation">${analysis.explanation}</div>
+
+        <div class="comparison">
+          <h3 style="color: #00d4ff; margin-bottom: 15px;">Compare to Current</h3>
+          <div class="comparison-row">
+            <div class="comparison-label">Salary</div>
+            <div class="comparison-current">${profile.currentSalary.toLocaleString()}</div>
+            <div class="comparison-new">${job.baseSalary.toLocaleString()} (${salaryPercent > 0 ? '+' : ''}${salaryPercent}%)</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-label">Hours/Week</div>
+            <div class="comparison-current">${profile.currentHours}h</div>
+            <div class="comparison-new">${job.hoursPerWeek}h (${job.hoursPerWeek - profile.currentHours > 0 ? '+' : ''}${job.hoursPerWeek - profile.currentHours})</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-label">Hourly Rate</div>
+            <div class="comparison-current">${(profile.currentSalary / (profile.currentHours * 52)).toFixed(0)}/hr</div>
+            <div class="comparison-new">${(job.baseSalary / (job.hoursPerWeek * 52)).toFixed(0)}/hr</div>
+          </div>
+        </div>
+
+        <div class="salary-data">
+          <h3>Market Data for ${job.jobTitle}</h3>
+          <p><strong>Your offer:</strong> ${job.baseSalary.toLocaleString()}</p>
+          <p><strong>Market range:</strong> ${salaryData.low.toLocaleString()} - ${salaryData.high.toLocaleString()}</p>
+          <p><strong>You're at:</strong> ${percentile}th percentile (${percentile < 33 ? 'below' : percentile < 67 ? 'at' : 'above'} market average)</p>
+        </div>
+
+        <div class="pros-cons">
+          <h3 style="color: #64ff9f; margin-bottom: 12px;">✓ What's Good</h3>
+          ${analysis.pros.length > 0 ? analysis.pros.map(p => `<div class="pro-item">${p}</div>`).join('') : '<div style="color: #a0a0a0;">No major pros</div>'}
+        </div>
+
+        <div class="pros-cons">
+          <h3 style="color: #ff6b6b; margin-bottom: 12px;">✗ What's Concerning</h3>
+          ${analysis.cons.length > 0 ? analysis.cons.map(c => `<div class="con-item">${c}</div>`).join('') : '<div style="color: #a0a0a0;">No major concerns</div>'}
+        </div>
+
+        <div class="section">
+          <h2>Score Breakdown</h2>`;
+      for (let [key, value] of Object.entries(analysis.breakdown)) {
+        html += `<div class="breakdown-item"><div class="breakdown-key">${key}</div><div class="breakdown-value">${value}</div></div>`;
+      }
+      html += `</div>`;
+      
+      if (job.concerns) {
+        html += `<div class="salary-data" style="border-left-color: #ff9800;">
+          <h3 style="color: #ff9800;">Your Concerns</h3>
+          <p>${job.concerns}</p>
+        </div>`;
+      }
+
+      document.getElementById('resultContent').innerHTML = html;
+    }
+
+    function showHistory() {
+      if (decisions.length === 0) {
+        document.getElementById('historyContent').innerHTML = '<p style="color:#a0a0a0; text-align:center; padding: 30px;">No decisions yet. Evaluate your first offer!</p>';
+      } else {
+        let html = '';
+        decisions.forEach((d, i) => {
+          const salaryDiff = d.job.baseSalary - (decisions[i-1]?.job?.baseSalary || d.job.baseSalary);
+          html += `<div class="history-item">
+            <div class="history-rec">${d.recommendation}</div>
+            <div style="color: #c0c0c0; font-weight: 500;">${d.job.jobTitle} @ ${d.job.company}</div>
+            <div style="color:#909090; font-size:13px;">
+              Score: ${d.score}/10 • ${d.job.baseSalary.toLocaleString()} • ${d.job.hoursPerWeek}h/week
+            </div>
+            <div class="history-date">${d.timestamp}</div>
+          </div>`;
+        });
+        document.getElementById('historyContent').innerHTML = html;
+      }
+      showScreen('historyScreen');
+    }
+  </script>
+</body>
+</html>
