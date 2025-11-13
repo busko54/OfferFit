@@ -432,7 +432,6 @@
 
   <script>
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-    const GEMINI_API_KEY = "AIzaSyC2sRcbHx60x2eCfp7-lgoOsybV3dXVRIg";  // ← your key
     
     let resumeData = null;
     let decisions = [];
@@ -510,37 +509,15 @@
       btn.textContent = '⏳ Extracting...';
       btn.disabled = true;
 
-      const prompt = `Extract comprehensive career information from this resume. Return ONLY valid JSON:
-{
-  "currentJobTitle": "string",
-  "yearsOfExperience": number,
-  "companies": [{"name": "string", "years": number}],
-  "skills": ["skill1", "skill2"],
-  "careerSummary": "2-3 sentence summary of career progression"
-}
-
-Resume:
-${resumeData.text}`;
-
       try {
-        const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent", {
+        const response = await fetch("/api/extract-resume", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-goog-api-key": "AIzaSyC2sRcbHx60x2eCfp7-lgoOsybV3dXVRIg"
-          },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }]
-          })
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ resumeText: resumeData.text })
         });
 
-        const data = await response.json();
-        const textContent = data.candidates[0].content.parts[0].text;
-        const jsonMatch = textContent.match(/\{[\s\S]*\}/);
-        
-        if (!jsonMatch) throw new Error('Could not parse');
-
-        const extracted = JSON.parse(jsonMatch[0]);
+        if (!response.ok) throw new Error('API error');
+        const extracted = await response.json();
 
         if (extracted.currentJobTitle) {
           document.getElementById('currentJobTitle').value = extracted.currentJobTitle;
@@ -576,44 +553,14 @@ ${resumeData.text}`;
       button.disabled = true;
 
       try {
-        const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent", {
+        const response = await fetch("/api/extract-job", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-goog-api-key": "AIzaSyC2sRcbHx60x2eCfp7-lgoOsybV3dXVRIg"
-          },
-          body: JSON.stringify({
-            contents: [{
-              parts: [{
-                text: `Extract all job details from this posting. Return ONLY valid JSON:
-{
-  "jobTitle": "string",
-  "company": "string",
-  "baseSalary": number,
-  "equity": "string or null",
-  "bonus": "string or null",
-  "hoursPerWeek": number,
-  "isRemote": boolean,
-  "workEnv": "full-remote|hybrid|onsite",
-  "fundingStage": "seed|series-a|series-b|growth|public",
-  "teamSize": number,
-  "industry": "string"
-}
-
-Job posting:
-${jobPosting}`
-              }]
-            }]
-          })
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ jobPosting })
         });
 
-        const data = await response.json();
-        const textContent = data.candidates[0].content.parts[0].text;
-        const jsonMatch = textContent.match(/\{[\s\S]*\}/);
-        
-        if (!jsonMatch) throw new Error('Could not extract');
-
-        const extracted = JSON.parse(jsonMatch[0]);
+        if (!response.ok) throw new Error('API error');
+        const extracted = await response.json();
 
         if (extracted.jobTitle) document.getElementById('jobTitle').value = extracted.jobTitle;
         if (extracted.company) document.getElementById('company').value = extracted.company;
@@ -685,7 +632,14 @@ ${jobPosting}`
       };
 
       try {
-        const aiAnalysis = await getAIAnalysis(profile, job);
+        const response = await fetch("/api/analyze-offer", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ profile, job })
+        });
+
+        if (!response.ok) throw new Error('API error');
+        const aiAnalysis = await response.json();
         const salaryData = getSalaryData(jobTitle);
         
         decisions.push({ ...aiAnalysis, job, profile, salaryData, timestamp: new Date().toLocaleString() });
@@ -698,77 +652,6 @@ ${jobPosting}`
         btn.textContent = 'Analyze This Offer';
         btn.disabled = false;
       }
-    }
-
-    async function getAIAnalysis(profile, job) {
-      const prompt = `You are an expert career coach and negotiation strategist. Analyze this job offer comprehensively and provide a logically consistent recommendation.
-
-RECOMMENDATION RULES:
-- TAKE (8-10/10): Aligns with priorities, good salary, minimal downsides. Accept as-is.
-- NEGOTIATE (5-7/10): Has potential BUT missing key things (lower salary, worse hours, etc). Worth negotiating ON SPECIFIC ITEMS.
-- PASS (0-4/10): Too many fundamental misalignments. Even if you negotiate, likely won't fix core issues.
-
-USER PROFILE:
-- Current: ${profile.currentJobTitle}, ${profile.currentSalary}/year, ${profile.currentHours}h/week
-- Experience: ${profile.yearsExp} years
-- Company size: ${profile.currentCompanySize}
-- Priorities (1-5): Salary=${profile.priority_salary}, Balance=${profile.priority_balance}, Growth=${profile.priority_growth}, Stability=${profile.priority_stability}, Remote=${profile.priority_remote}, Brand=${profile.priority_brand}
-${profile.resumeData ? `- Background: ${profile.resumeData}` : ''}
-
-JOB OFFER:
-- Title: ${job.jobTitle} @ ${job.company}
-- Salary: ${job.baseSalary}/year (vs current ${profile.currentSalary})
-- Equity: ${job.equity || 'None mentioned'}
-- Bonus: ${job.bonus || 'None mentioned'}
-- Hours: ${job.hoursPerWeek}h/week (vs current ${profile.currentHours})
-- Setup: ${job.workEnv}
-- Stage: ${job.fundingStage}
-- Team: ${job.teamSize} people
-- Industry: ${job.industry}
-- Concerns: ${job.concerns || 'None'}
-
-IMPORTANT: Match recommendation to score. Only use NEGOTIATE if 5-7/10. If score is 3/10, must be PASS. If 8+, must be TAKE.
-
-Provide JSON:
-{
-  "recommendation": "TAKE|PASS|NEGOTIATE",
-  "score": 0-10,
-  "confidence": 0-100,
-  "scoringBreakdown": {
-    "salary": "explanation with percentage change and market position",
-    "workLife": "explanation of hours and balance impact",
-    "growth": "explanation of learning/career progression opportunity",
-    "stability": "explanation based on company stage",
-    "remote": "explanation of work setup vs preference",
-    "brand": "explanation of company prestige impact"
-  },
-  "strengths": ["strength1", "strength2", "strength3"],
-  "weaknesses": ["weakness1", "weakness2", "weakness3"],
-  "negotiableItems": ["item1 - specific thing to push for", "item2"],
-  "careerImpact": "2-3 sentences on career trajectory impact",
-  "reasoning": "2-3 sentences - WHY this recommendation at this score",
-  "riskFactors": "key risks if you take this",
-  "questions": ["question1 to ask?", "question2 to ask?"]
-}`;
-
-      const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-goog-api-key": "AIzaSyC2sRcbHx60x2eCfp7-lgoOsybV3dXVRIg"
-        },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }]
-        })
-      });
-
-      const data = await response.json();
-      const textContent = data.candidates[0].content.parts[0].text;
-      const jsonMatch = textContent.match(/\{[\s\S]*\}/);
-      
-      if (!jsonMatch) throw new Error('Invalid response');
-      
-      return JSON.parse(jsonMatch[0]);
     }
 
     function getSalaryData(jobTitle) {
