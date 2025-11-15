@@ -304,17 +304,17 @@
 
           <div class="form-group">
             <label>Current Salary ($)</label>
-            <input type="number" id="currentSalary">
+            <input type="number" id="currentSalary" value="80000">
           </div>
 
           <div class="form-group">
             <label>Current Hours Per Week</label>
-            <input type="number" id="currentHours">
+            <input type="number" id="currentHours" value="40">
           </div>
 
           <div class="form-group">
             <label>Years of Experience</label>
-            <input type="number" id="yearsExp" min="0">
+            <input type="number" id="yearsExp" value="5" min="0">
           </div>
 
           <div class="form-group">
@@ -322,7 +322,7 @@
             <select id="currentCompanySize">
               <option value="startup">Startup (1-50)</option>
               <option value="small">Small (50-500)</option>
-              <option value="mid" >Mid (500-5000)</option>
+              <option value="mid" selected>Mid (500-5000)</option>
               <option value="large">Large (5000+)</option>
             </select>
           </div>
@@ -377,6 +377,54 @@
               <input type="range" id="priorityBrand" min="1" max="5" value="2">
               <span class="slider-value" id="brandValue">2</span>
             </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Work Preferences</h2>
+          
+          <div class="form-group">
+            <label>Preferred Work Schedule</label>
+            <select id="workSchedule">
+              <option value="">Select your preference</option>
+              <option value="morning">Morning Shift (Early start)</option>
+              <option value="standard">Standard 9-5</option>
+              <option value="flexible">Flexible Hours</option>
+              <option value="evening">Evening Shift</option>
+              <option value="no-preference">No Preference</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Overtime & On-Call Tolerance</label>
+            <select id="overtimePreference">
+              <option value="">Select your preference</option>
+              <option value="no-overtime">No overtime or on-call</option>
+              <option value="occasional">Occasional only (rare)</option>
+              <option value="moderate">Moderate (expected sometimes)</option>
+              <option value="flexible">Flexible/As needed</option>
+              <option value="no-preference">No Preference</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Travel Requirements</label>
+            <select id="travelPreference">
+              <option value="">Select your preference</option>
+              <option value="no-travel">No travel required</option>
+              <option value="minimal">Minimal (1-2x/month)</option>
+              <option value="moderate">Moderate (monthly)</option>
+              <option value="frequent">Frequent (weekly)</option>
+              <option value="no-preference">No Preference</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Additional Notes</h2>
+          <div class="form-group">
+            <label>Anything else that matters? (Optional)</label>
+            <textarea id="additionalNotes" placeholder="e.g., Company culture important to me, want mentorship opportunities, need good health insurance, prefer startup environment, family-friendly policies, etc..." style="height: 100px; resize: vertical;"></textarea>
           </div>
         </div>
 
