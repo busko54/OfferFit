@@ -1375,6 +1375,9 @@ document.getElementById('paymentForm').addEventListener('submit', async (e) => {
 
     const result = await response.json();
     if (result.success) {
+      // Payment succeeded - NOW run the analysis
+      await runAnalysisAfterPayment();
+      
       document.getElementById('paymentForm').style.display = 'none';
       document.getElementById('paymentSuccess').style.display = 'block';
     } else {
@@ -1386,6 +1389,54 @@ document.getElementById('paymentForm').addEventListener('submit', async (e) => {
     submitBtn.textContent = selectedPaymentPlan === 'monthly' ? 'Subscribe $9.99/mo' : 'Pay $2.99';
   }
 });
+
+async function runAnalysisAfterPayment() {
+  const jobTitle = document.getElementById('jobTitle').value;
+  const company = document.getElementById('company').value;
+  const baseSalary = parseInt(document.getElementById('baseSalary').value);
+  const currentSalary = parseInt(document.getElementById('currentSalary').value);
+
+  const profile = {
+    currentJobTitle: document.getElementById('currentJobTitle').value,
+    currentSalary,
+    currentHours: parseInt(document.getElementById('currentHours').value),
+    yearsExp: parseInt(document.getElementById('yearsExp').value),
+    currentCompanySize: document.getElementById('currentCompanySize').value,
+    priority_salary: parseInt(document.getElementById('prioritySalary').value),
+    priority_balance: parseInt(document.getElementById('priorityBalance').value),
+    priority_growth: parseInt(document.getElementById('priorityGrowth').value),
+    priority_stability: parseInt(document.getElementById('priorityStability').value),
+    priority_remote: parseInt(document.getElementById('priorityRemote').value),
+    priority_brand: parseInt(document.getElementById('priorityBrand').value),
+    resumeData: resumeData ? resumeData.text.substring(0, 2000) : null
+  };
+
+  const job = {
+    jobTitle,
+    company,
+    baseSalary,
+    equity: document.getElementById('equity').value,
+    bonus: document.getElementById('bonus').value,
+    hoursPerWeek: parseInt(document.getElementById('hoursPerWeek').value),
+    workEnv: document.getElementById('workEnv').value,
+    fundingStage: document.getElementById('fundingStage').value,
+    teamSize: parseInt(document.getElementById('teamSize').value),
+    industry: document.getElementById('industry').value,
+    concerns: document.getElementById('concerns').value
+  };
+
+  const response = await fetch("/api/analyze-offer", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ profile, job })
+  });
+
+  const aiAnalysis = await response.json();
+  const salaryData = getSalaryData(jobTitle);
+  
+  decisions.push({ ...aiAnalysis, job, profile, salaryData, timestamp: new Date().toLocaleString() });
+  lastAnalysis = { analysis: aiAnalysis, salaryData, job, profile };
+}
 
 function completePayment() {
   closePaymentModal();
