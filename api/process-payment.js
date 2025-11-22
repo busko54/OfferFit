@@ -18,6 +18,11 @@ module.exports = async function handler(req, res) {
         currency: 'usd',
         payment_method: paymentMethodId,
         confirm: true,
+        return_url: 'https://www.offerfit.app',
+        automatic_payment_methods: {
+          enabled: true,
+          allow_redirects: 'never'
+        },
         description: 'OfferFit - Single Analysis'
       });
 
@@ -44,7 +49,10 @@ module.exports = async function handler(req, res) {
             unit_amount: amount
           }
         }],
-        payment_settings: { save_default_payment_method: 'on_subscription' }
+        payment_settings: { 
+          save_default_payment_method: 'on_subscription',
+          default_mandate_id: paymentMethodId
+        }
       });
 
       return res.status(200).json({
