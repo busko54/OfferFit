@@ -1086,10 +1086,16 @@
     return;
   }
 
-  if (/^[a-z0-9]+$/.test(jobTitle) || /^[a-z0-9]+$/.test(company)) {
-    alert('That looks like test data. Please enter a real job title and company');
-    return;
-  }
+  // Replace the overly strict regex check with this:
+if (
+  jobTitle.toLowerCase().includes('test') && jobTitle.length <= 10 ||
+  company.toLowerCase().includes('test') && company.length <= 10 ||
+  jobTitle.match(/^(asdf|qwer|123|xxx|yyyy|z+z)$/i) ||
+  company.match(/^(asdf|qwer|123|xxx|yyyy|z+z)$/i)
+) {
+  alert('That looks like test data. Please enter a real job title and company');
+  return;
+}
 
   // If this is the SECOND analysis or later, show payment modal
   if (analysisCount > 0) {
