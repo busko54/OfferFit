@@ -20,12 +20,12 @@ export default async function handler(req, res) {
     const prompt = `Extract comprehensive career information from this resume. Return ONLY valid JSON (no markdown):
 {
   "currentJobTitle": "string",
+  "currentCompany": "string",
   "yearsOfExperience": number,
   "companies": [{"name": "string", "years": number}],
   "skills": ["skill1", "skill2"],
   "careerSummary": "2-3 sentence summary of career progression"
 }
-
 Resume:
 ${resumeText}`;
 
