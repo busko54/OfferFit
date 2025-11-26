@@ -546,6 +546,7 @@
     </div>
   </div>
   <!-- APP -->
+  <!-- APP -->
   <div id="appContainer" class="app-container">
     <div class="app-content">
       <!-- PROFILE SCREEN -->
@@ -557,11 +558,11 @@
         <p class="subtitle">Upload your resume or tell us about your career</p>
         
         <div class="section">
-          <h2>Resume (Optional but Recommended)</h2>
+          <h2>Resume <span style="color: #ff6b6b;">*</span></h2>
           <div id="resumeStatus" class="resume-status empty">📄 No resume uploaded yet</div>
           <label class="file-input-label">
             📤 Upload Resume (PDF or TXT)
-            <input type="file" id="resumeFile" accept=".pdf,.txt" onchange="handleResumeUpload(event)">
+            <input type="file" id="resumeFile" accept=".pdf,.txt" onchange="handleResumeUpload(event)" required>
           </label>
           <button class="btn-secondary" id="extractResumeBtn" onclick="extractResumeData()" style="width: 100%; margin-top: 10px; display: none;">🤖 Extract from Resume</button>
         </div>
@@ -701,7 +702,7 @@
         </div>
 
         <div class="button-row">
-          <button class="btn-primary" onclick="goToJobScreen()">Next: Enter Job Offer</button>
+          <button class="btn-primary" onclick="goToJobScreen()">Next: Enter Job Posting</button>
           <button class="btn-secondary" onclick="showHistory()">View History</button>
         </div>
       </div>
