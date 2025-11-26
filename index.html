@@ -932,8 +932,13 @@
     
 
     function goToProfileScreen() { showScreen('profileScreen'); }
-    function goToJobScreen() { showScreen('jobScreen'); }
-
+function goToJobScreen() {
+  if (!resumeData || Object.keys(resumeData).length === 0) {
+    alert('⚠️ Please upload your resume first to get accurate analysis');
+    return;
+  }
+  showScreen('jobScreen');
+}
    
     async function handleResumeUpload(event) {
       const file = event.target.files[0];
