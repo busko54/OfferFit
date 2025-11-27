@@ -1251,22 +1251,22 @@ if (
           <p>${analysis.careerImpact}</p>
         </div>
 
-        <div class="comparison">
+       <div class="comparison">
           <h3 style="color: #00d4ff; margin-bottom: 15px;">📊 Offer vs Current</h3>
           <div class="comparison-row">
             <div class="comparison-label">Base Salary</div>
-            <div class="comparison-current">${profile.currentSalary.toLocaleString()}</div>
-            <div class="comparison-new">${job.baseSalary.toLocaleString()} (${salaryPercent > 0 ? '+' : ''}${salaryPercent}%)</div>
+            <div class="comparison-current">${profile.currentSalary ? '$' + profile.currentSalary.toLocaleString() : 'N/A'}</div>
+            <div class="comparison-new">${job.baseSalary ? '$' + job.baseSalary.toLocaleString() + ' (' + (salaryPercent > 0 ? '+' : '') + salaryPercent + '%)' : 'N/A'}</div>
           </div>
           <div class="comparison-row">
             <div class="comparison-label">Hours/Week</div>
-            <div class="comparison-current">${profile.currentHours}h</div>
-            <div class="comparison-new">${job.hoursPerWeek}h (${job.hoursPerWeek - profile.currentHours > 0 ? '+' : ''}${job.hoursPerWeek - profile.currentHours})</div>
+            <div class="comparison-current">${profile.currentHours ? profile.currentHours + 'h' : 'N/A'}</div>
+            <div class="comparison-new">${job.hoursPerWeek ? job.hoursPerWeek + 'h (' + (job.hoursPerWeek - profile.currentHours > 0 ? '+' : '') + (job.hoursPerWeek - profile.currentHours) + ')' : 'N/A'}</div>
           </div>
           <div class="comparison-row">
             <div class="comparison-label">Hourly Rate</div>
-            <div class="comparison-current">${(profile.currentSalary / (profile.currentHours * 52)).toFixed(0)}/hr</div>
-            <div class="comparison-new">${(job.baseSalary / (job.hoursPerWeek * 52)).toFixed(0)}/hr</div>
+            <div class="comparison-current">${profile.currentSalary && profile.currentHours ? '$' + (profile.currentSalary / (profile.currentHours * 52)).toFixed(0) + '/hr' : 'N/A'}</div>
+            <div class="comparison-new">${job.baseSalary && job.hoursPerWeek ? '$' + (job.baseSalary / (job.hoursPerWeek * 52)).toFixed(0) + '/hr' : 'N/A'}</div>
           </div>
         </div>
 
