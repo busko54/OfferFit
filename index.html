@@ -1693,13 +1693,8 @@ window.addEventListener('load', () => {
     document.getElementById('landingPage').style.display = 'none';
     document.getElementById('appContainer').classList.add('show');
     
-    // Restore which screen they were on
-    const savedScreenName = localStorage.getItem('ScreenJob_activeScreen');
-    if (savedScreenName) {
-      showScreen(savedScreenName);
-    } else {
-      showScreen('profileScreen');
-    }
+    // Always start at profile screen - never restore result screen
+    showScreen('profileScreen');
   }
 });
 
