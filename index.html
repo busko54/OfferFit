@@ -1178,86 +1178,28 @@ function goToJobScreen() {
   }
 }
 
-   // BLS Occupation Series IDs
-const BLS_OCCUPATION_CODES = {
-  'systems administrator': 'OES110021',
-  'software engineer': 'OES151132',
-  'senior software engineer': 'OES151132',
-  'data scientist': 'OES151132',
-  'product manager': 'OES113031',
-  'web developer': 'OES151134',
-  'devops': 'OES151131',
-  'network engineer': 'OES110031',
-  'security engineer': 'OES151093',
-  'architect': 'OES151031',
-  'engineer': 'OES111011'
-};
-
-async function getSalaryData(jobTitle) {
-  const blsData = await fetchBLSSalaryData(jobTitle);
-  if (blsData) return blsData;
-  return getEstimatedSalaryData(jobTitle);
-}
-
-async function fetchBLSSalaryData(jobTitle) {
-  try {
-    const occupationCode = findOccupationCode(jobTitle);
-    if (!occupationCode) return null;
-
-    const response = await fetch('https://api.bls.gov/publicAPI/v2/timeseries/data/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        seriesid: [occupationCode],
-        startyear: 2023,
-        endyear: 2024
-      })
-    });
-
-    const data = await response.json();
-    if (!data.Results?.series?.[0]?.data?.[0]) return null;
-
-    const medianSalary = parseInt(data.Results.series[0].data[0].value) * 1000;
-
-    return {
-      low: Math.round(medianSalary * 0.75),
-      median: medianSalary,
-      high: Math.round(medianSalary * 1.4),
-      source: 'BLS (US Government - 2024)'
-    };
-
-  } catch (error) {
-    console.error('BLS API error:', error);
-    return null;
-  }
-}
-
-function findOccupationCode(jobTitle) {
-  const title = jobTitle.toLowerCase();
-  
-  for (const [key, code] of Object.entries(BLS_OCCUPATION_CODES)) {
-    if (title.includes(key)) return code;
-  }
-  
-  return 'OES111011';
-}
-
-function getEstimatedSalaryData(jobTitle) {
-  const ranges = {
-    'engineer': { low: 90000, high: 250000, median: 160000 },
-    'manager': { low: 110000, high: 280000, median: 180000 },
-    'designer': { low: 80000, high: 180000, median: 130000 },
-    'product': { low: 100000, high: 250000, median: 170000 },
-    'developer': { low: 85000, high: 220000, median: 150000 },
-    'analyst': { low: 70000, high: 180000, median: 120000 },
-    'architect': { low: 120000, high: 300000, median: 200000 },
-    'systems administrator': { low: 60000, high: 120000, median: 85000 },
-    'default': { low: 60000, high: 180000, median: 110000 }
-  };
-
-  const key = Object.keys(ranges).find(k => jobTitle.toLowerCase().includes(k)) || 'default';
-  return { ...ranges[key], source: 'Industry estimates' };
-}
+    function getSalaryData(jobTitle) {
+      // Try to get real BLS data, fallback to estimates if API fails
+      fetchBLSSalaryData(jobTitle).then(data => {
+        if (data) {
+          lastBLSData = data;
+        }
+      });
+      
+      // Fallback salary ranges (used if BLS API fails or is slow)
+      const ranges = {
+        'engineer': { low: 90000, high: 250000, median: 160000, source: 'estimate' },
+        'manager': { low: 110000, high: 280000, median: 180000, source: 'estimate' },
+        'designer': { low: 80000, high: 180000, median: 130000, source: 'estimate' },
+        'product': { low: 100000, high: 250000, median: 170000, source: 'estimate' },
+        'developer': { low: 85000, high: 220000, median: 150000, source: 'estimate' },
+        'analyst': { low: 70000, high: 180000, median: 120000, source: 'estimate' },
+        'architect': { low: 120000, high: 300000, median: 200000, source: 'estimate' },
+        'default': { low: 60000, high: 180000, median: 110000, source: 'estimate' }
+      };
+      const key = Object.keys(ranges).find(k => jobTitle.toLowerCase().includes(k)) || 'default';
+      return ranges[key];
+    }
 
     async function fetchBLSSalaryData(jobTitle) {
       try {
