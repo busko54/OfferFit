@@ -1074,7 +1074,7 @@ function goToJobScreen() {
       }
     }
 
-   aasync function analyzeOffer() {
+   async function analyzeOffer() {
   const jobTitle = document.getElementById('jobTitle').value.trim();
   const company = document.getElementById('company').value.trim();
   const currentSalary = parseInt(document.getElementById('currentSalary').value) || 0;
@@ -1170,11 +1170,6 @@ function goToJobScreen() {
   } catch (error) {
     console.error('Analysis error:', error);
     alert('Error during analysis. Please try again.');
-  } finally {
-    btn.textContent = 'Analyze This Offer';
-    btn.disabled = false;
-  }
-}
   } finally {
     btn.textContent = 'Analyze This Offer';
     btn.disabled = false;
